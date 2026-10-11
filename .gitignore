@@ -1,0 +1,21 @@
+# Le dépôt ne versionne que les formats texte (scripts, docs, rapports) :
+# GLB, .blend, OBJ, images, vidéos et sauvegardes restent dans la copie de
+# travail locale, comme dans lemegeton-minitel avant la séparation.
+/**
+!/**/
+!/**/*.md
+!/**/*.txt
+!/**/*.py
+!/**/*.json
+!/**/*.csv
+!/**/*.html
+!/**/*.bat
+!/**/*.ps1
+!/.gitignore
+!/.gitattributes
+
+# Exports de conversation et sauvegardes : jamais versionnés.
+/ChatGPT-*.md
+/09_SAUVEGARDES/
+**/__pycache__/
+*.log
