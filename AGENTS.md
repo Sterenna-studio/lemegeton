@@ -1,18 +1,18 @@
 # Instructions pour les prochains agents
 
 > **Dépôt dédié depuis le 12 octobre 2026.** Ce dossier était `lemegeton/` dans
-> `Sterenna-studio/lemegeton-minitel` ; il vit maintenant seul dans
-> [Sterenna-studio/lemegeton](https://github.com/Sterenna-studio/lemegeton) (public),
-> copie de travail `C:\DEV\repos\lemegeton`. Seuls les formats texte sont versionnés
+> `Sterenna-studio/minitel-musee` (alors `lemegeton-minitel`) ; il vit maintenant
+> seul dans [Sterenna-studio/lemegeton-core](https://github.com/Sterenna-studio/lemegeton-core) (public),
+> copie de travail `C:\DEV\repos\lemegeton-core`. Seuls les formats texte sont versionnés
 > (`.gitignore`) ; les binaires restent dans la copie de travail. Le site Web
 > (« `07_WEB_MINITEL` » ci-dessous) est le dépôt
-> [lemegeton-minitel](https://github.com/Sterenna-studio/lemegeton-minitel), publié sur
+> [minitel-musee](https://github.com/Sterenna-studio/minitel-musee), publié sur
 > https://sterenna.fr/minitel/ ; les sources des terminaux (Minitel, téléviseur, tables,
 > ex-`06_MODEL/`) y sont restées, dans `sources/`. Historique de la migration du
 > 6 octobre : `08_AUDIT/migration-2026-10-06/MIGRATION.md`.
 
 Commencer par `PASSATION_AGENTS.md`, `08_AUDIT/AUDIT_GLOBAL.md`, puis le README
-du sous-projet concerne. Ce dossier est le depot Git `Sterenna-studio/lemegeton`.
+du sous-projet concerne. Ce dossier est le depot Git `Sterenna-studio/lemegeton-core`, qui accueille tout ce qui touche a la creation de Lemegeton.
 Ne pas supposer un historique Git, une publication ou une sauvegarde distante.
 
 ## Preservation

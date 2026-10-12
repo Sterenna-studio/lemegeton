@@ -1,6 +1,6 @@
 # Le dépôt ne versionne que les formats texte (scripts, docs, rapports) :
 # GLB, .blend, OBJ, images, vidéos et sauvegardes restent dans la copie de
-# travail locale, comme dans lemegeton-minitel avant la séparation.
+# travail locale, comme dans minitel-musee (alors lemegeton-minitel) avant la séparation.
 /**
 !/**/
 !/**/*.md

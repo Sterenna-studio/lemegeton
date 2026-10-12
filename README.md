@@ -1,12 +1,20 @@
-# Lemegeton - projet 3D
+# lemegeton-core
+
+Le cœur créatif de Lemegéton : tout ce qui touche à la création du personnage
+(références, modélisation, rigs, animation, scènes Blender, exports, notes et
+audits). Les projets qui l'utilisent vivent ailleurs, comme le musée Minitel
+[minitel-musee](https://github.com/Sterenna-studio/minitel-musee), né de l'envie
+d'un Minitel 3D fonctionnel pour le corps du personnage.
+
+## Lemegeton - projet 3D
 
 > **Dépôt dédié depuis le 12 octobre 2026.** Ce dossier était `lemegeton/` dans
-> `Sterenna-studio/lemegeton-minitel` ; il vit maintenant seul dans
-> [Sterenna-studio/lemegeton](https://github.com/Sterenna-studio/lemegeton) (public),
-> copie de travail `C:\DEV\repos\lemegeton`. Seuls les formats texte sont versionnés
+> `Sterenna-studio/minitel-musee` (alors `lemegeton-minitel`) ; il vit maintenant
+> seul dans [Sterenna-studio/lemegeton-core](https://github.com/Sterenna-studio/lemegeton-core) (public),
+> copie de travail `C:\DEV\repos\lemegeton-core`. Seuls les formats texte sont versionnés
 > (`.gitignore`) ; les binaires restent dans la copie de travail. Le site Web
 > (« `07_WEB_MINITEL` » ci-dessous) est le dépôt
-> [lemegeton-minitel](https://github.com/Sterenna-studio/lemegeton-minitel), publié sur
+> [minitel-musee](https://github.com/Sterenna-studio/minitel-musee), publié sur
 > https://sterenna.fr/minitel/ ; les sources des terminaux (Minitel, téléviseur, tables,
 > ex-`06_MODEL/`) y sont restées, dans `sources/`. Historique de la migration du
 > 6 octobre : `08_AUDIT/migration-2026-10-06/MIGRATION.md`.
@@ -24,7 +32,7 @@ Les scenes Blender non enregistrees en RAM ne sont pas incluses dans un ZIP.
 - `01_REFERENCES/` : les 9 images de concept, fiches techniques et storyboard.
 - `02_SOURCES_3D/` : les 6 modeles GLB d'origine et le rapport de preparation.
 - `03_RIGS/` : les 4 packages de rig, conserves avec leurs ressources et scripts.
-- `06_MODEL/` : essais de modeles du personnage (Cyber Djinn, Meshy, minitel_bot, white_mesh) ; les sources des terminaux du site sont dans `lemegeton-minitel/sources/06_MODEL/`.
+- `06_MODEL/` : essais de modeles du personnage (Cyber Djinn, Meshy, minitel_bot, white_mesh) ; les sources des terminaux du site sont dans `minitel-musee/sources/06_MODEL/`.
 - [PIPELINE_TRAVAIL.md](PIPELINE_TRAVAIL.md) : ordre de travail, lancement Blender, controles et livrables a produire.
 - [Export de la conversation](ChatGPT-Animer%20ce%20mod%C3%A8le-20261005-0242.md) : historique original des choix de design et iterations.
 - `TRI_MANIFEST.csv` : anciens et nouveaux chemins des 51 fichiers, tailles et empreintes SHA-256.
@@ -36,7 +44,7 @@ Aucun fichier d'origine n'a ete supprime ou modifie lors du rangement du 5 octob
 
 ### Minitel interactif pour le Web
 
-La nouvelle application est dans [07_WEB_MINITEL](https://github.com/Sterenna-studio/lemegeton-minitel/blob/main/docs/USAGE.md).
+La nouvelle application est dans [07_WEB_MINITEL](https://github.com/Sterenna-studio/minitel-musee/blob/main/docs/USAGE.md).
 Elle utilise une copie du vrai Minitel ajoute dans `06_MODEL`, avec ecran
 Canvas/Videotex dynamique, pages 3615 LEMEGETON, clavier, camera et anchors.
 Les sources 3D originales restent conservees ; ce composant est independant du rig du personnage.
@@ -48,7 +56,7 @@ npm run dev
 ```
 
 URL locale : http://127.0.0.1:5174/. Voir les instructions de remplacement du
-GLB et [preparation Blender](https://github.com/Sterenna-studio/lemegeton-minitel/blob/main/docs/MODEL_PREPARATION.md).
+GLB et [preparation Blender](https://github.com/Sterenna-studio/minitel-musee/blob/main/docs/MODEL_PREPARATION.md).
 
 ### Personnage et rig
 

@@ -1,12 +1,12 @@
 # Passation du projet Lemegeton / Minitel Web
 
 > **Dépôt dédié depuis le 12 octobre 2026.** Ce dossier était `lemegeton/` dans
-> `Sterenna-studio/lemegeton-minitel` ; il vit maintenant seul dans
-> [Sterenna-studio/lemegeton](https://github.com/Sterenna-studio/lemegeton) (public),
-> copie de travail `C:\DEV\repos\lemegeton`. Seuls les formats texte sont versionnés
+> `Sterenna-studio/minitel-musee` (alors `lemegeton-minitel`) ; il vit maintenant
+> seul dans [Sterenna-studio/lemegeton-core](https://github.com/Sterenna-studio/lemegeton-core) (public),
+> copie de travail `C:\DEV\repos\lemegeton-core`. Seuls les formats texte sont versionnés
 > (`.gitignore`) ; les binaires restent dans la copie de travail. Le site Web
 > (« `07_WEB_MINITEL` » ci-dessous) est le dépôt
-> [lemegeton-minitel](https://github.com/Sterenna-studio/lemegeton-minitel), publié sur
+> [minitel-musee](https://github.com/Sterenna-studio/minitel-musee), publié sur
 > https://sterenna.fr/minitel/ ; les sources des terminaux (Minitel, téléviseur, tables,
 > ex-`06_MODEL/`) y sont restées, dans `sources/`. Historique de la migration du
 > 6 octobre : `08_AUDIT/migration-2026-10-06/MIGRATION.md`.
@@ -67,8 +67,8 @@ Entrees de code :
 - `src/components/AccessibleTerminal.tsx` : texte et actions DOM synchronises.
 - `src/scene` : camera responsive, lumiere, contexte WebGL et fallback.
 
-Lire [README Web](https://github.com/Sterenna-studio/lemegeton-minitel/blob/main/docs/USAGE.md) et
-[MODEL_PREPARATION](https://github.com/Sterenna-studio/lemegeton-minitel/blob/main/docs/MODEL_PREPARATION.md) avant de changer
+Lire [README Web](https://github.com/Sterenna-studio/minitel-musee/blob/main/docs/USAGE.md) et
+[MODEL_PREPARATION](https://github.com/Sterenna-studio/minitel-musee/blob/main/docs/MODEL_PREPARATION.md) avant de changer
 un asset. Le composant Minitel s'utilise dans un Canvas R3F ; fournir aussi le
 contenu DOM accessible lors d'une integration dans un autre site.
 
