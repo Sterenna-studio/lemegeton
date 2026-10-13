@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" width="900" height="950" viewBox="0 0 900 950">
+<title>Lemegeton — rig 2D éditable</title>
+<desc>Prototype de montage avec pièces séparées en groupes, pivots visibles sur un calque indépendant.</desc>
+<rect width="900" height="950" fill="#f5f2eb" id="fond_apercu"/>
+<g id="feet_back_l" inkscape:groupmode="layer" inkscape:label="Pied gauche" transform="translate(315 0) scale(-1 1)">
+      <image href="assets/pieds/pied_face.png" x="240" y="785" width="150" height="105" preserveAspectRatio="xMidYMid meet"/>
+    </g><g id="feet_back_r" inkscape:groupmode="layer" inkscape:label="Pied droit" >
+      <image href="assets/pieds/pied_face.png" x="510" y="785" width="150" height="105" preserveAspectRatio="xMidYMid meet"/>
+    </g><g id="leg_lower_l" inkscape:groupmode="layer" inkscape:label="Jambe gauche - segment inférieur" transform="translate(334 0) scale(-1 1)">
+      <image href="assets/jambes/jambe_inferieure.png" x="282" y="680" width="105" height="145" preserveAspectRatio="xMidYMid meet"/>
+    </g><g id="leg_lower_r" inkscape:groupmode="layer" inkscape:label="Jambe droite - segment inférieur" >
+      <image href="assets/jambes/jambe_inferieure.png" x="513" y="680" width="105" height="145" preserveAspectRatio="xMidYMid meet"/>
+    </g><g id="knee_l" inkscape:groupmode="layer" inkscape:label="Genou gauche" transform="translate(336 0) scale(-1 1)">
+      <image href="assets/jambes/genou.png" x="294" y="650" width="85" height="80" preserveAspectRatio="xMidYMid meet"/>
+    </g><g id="knee_r" inkscape:groupmode="layer" inkscape:label="Genou droit" >
+      <image href="assets/jambes/genou.png" x="510" y="650" width="85" height="80" preserveAspectRatio="xMidYMid meet"/>
+    </g><g id="thigh_l" inkscape:groupmode="layer" inkscape:label="Cuisse gauche" transform="translate(335 0) scale(-1 1)">
+      <image href="assets/jambes/cuisse.png" x="288" y="590" width="95" height="110" preserveAspectRatio="xMidYMid meet"/>
+    </g><g id="thigh_r" inkscape:groupmode="layer" inkscape:label="Cuisse droite" >
+      <image href="assets/jambes/cuisse.png" x="505" y="590" width="95" height="110" preserveAspectRatio="xMidYMid meet"/>
+    </g><g id="arm_upper_l" inkscape:groupmode="layer" inkscape:label="Bras supérieur gauche" transform="translate(232 0) scale(-1 1)">
+      <image href="assets/bras/bras_superieur.png" x="175" y="440" width="115" height="125" preserveAspectRatio="xMidYMid meet"/>
+    </g><g id="arm_lower_l" inkscape:groupmode="layer" inkscape:label="Bras inférieur gauche" transform="translate(205 0) scale(-1 1)">
+      <image href="assets/bras/bras_inferieur.png" x="150" y="535" width="110" height="115" preserveAspectRatio="xMidYMid meet"/>
+    </g><g id="wrist_l" inkscape:groupmode="layer" inkscape:label="Poignet gauche" transform="translate(187 0) scale(-1 1)">
+      <image href="assets/bras/poignet.png" x="145" y="610" width="85" height="80" preserveAspectRatio="xMidYMid meet"/>
+    </g><g id="hand_l" inkscape:groupmode="layer" inkscape:label="Main gauche (variante poing)" transform="translate(175 0) scale(-1 1)">
+      <image href="assets/mains/main_poing.png" x="125" y="650" width="100" height="95" preserveAspectRatio="xMidYMid meet"/>
+    </g><g id="arm_upper_r" inkscape:groupmode="layer" inkscape:label="Bras supérieur droit" >
+      <image href="assets/bras/bras_superieur.png" x="610" y="440" width="115" height="125" preserveAspectRatio="xMidYMid meet"/>
+    </g><g id="arm_lower_r" inkscape:groupmode="layer" inkscape:label="Bras inférieur droit" >
+      <image href="assets/bras/bras_inferieur.png" x="645" y="535" width="110" height="115" preserveAspectRatio="xMidYMid meet"/>
+    </g><g id="wrist_r" inkscape:groupmode="layer" inkscape:label="Poignet droit" >
+      <image href="assets/bras/poignet.png" x="670" y="610" width="85" height="80" preserveAspectRatio="xMidYMid meet"/>
+    </g><g id="hand_r" inkscape:groupmode="layer" inkscape:label="Main droite (variante poing)" >
+      <image href="assets/mains/main_poing.png" x="685" y="650" width="100" height="95" preserveAspectRatio="xMidYMid meet"/>
+    </g><g id="torso" inkscape:groupmode="layer" inkscape:label="Torse-clavier" >
+      <image href="assets/torse/torse_face_clavier.png" x="260" y="390" width="390" height="275" preserveAspectRatio="xMidYMid meet"/>
+    </g><g id="head_shell" inkscape:groupmode="layer" inkscape:label="Cadre et coque de tête" >
+      <image href="assets/tete/tete_face.png" x="285" y="105" width="340" height="300" preserveAspectRatio="xMidYMid meet"/>
+    </g><g id="screen_expression" inkscape:groupmode="layer" inkscape:label="Écran / expression interchangeable" >
+      <image href="assets/expressions/ecran_heureux.png" x="365" y="180" width="180" height="150" preserveAspectRatio="xMidYMid meet"/>
+    </g><g id="antenna" inkscape:groupmode="layer" inkscape:label="Antenne" >
+      <image href="assets/antenne/antenne_standard.png" x="430" y="55" width="65" height="95" preserveAspectRatio="xMidYMid meet"/>
+    </g>
+<g id="pivots" inkscape:groupmode="layer" inkscape:label="GUIDES - pivots (masquer pour export)"><g><circle cx="450" cy="405" r="7" fill="#ff00b4" stroke="#fff" stroke-width="2"/><text x="460" y="397" font-family="Arial" font-size="12" fill="#ff00b4" stroke="#fff" stroke-width="0.6" paint-order="stroke">Pivot tête/cou</text></g><g><circle cx="265" cy="455" r="7" fill="#ff00b4" stroke="#fff" stroke-width="2"/><text x="275" y="447" font-family="Arial" font-size="12" fill="#ff00b4" stroke="#fff" stroke-width="0.6" paint-order="stroke">Épaule gauche</text></g><g><circle cx="220" cy="545" r="7" fill="#ff00b4" stroke="#fff" stroke-width="2"/><text x="230" y="537" font-family="Arial" font-size="12" fill="#ff00b4" stroke="#fff" stroke-width="0.6" paint-order="stroke">Coude gauche</text></g><g><circle cx="180" cy="625" r="7" fill="#ff00b4" stroke="#fff" stroke-width="2"/><text x="190" y="617" font-family="Arial" font-size="12" fill="#ff00b4" stroke="#fff" stroke-width="0.6" paint-order="stroke">Poignet gauche</text></g><g><circle cx="635" cy="455" r="7" fill="#ff00b4" stroke="#fff" stroke-width="2"/><text x="645" y="447" font-family="Arial" font-size="12" fill="#ff00b4" stroke="#fff" stroke-width="0.6" paint-order="stroke">Épaule droite</text></g><g><circle cx="690" cy="545" r="7" fill="#ff00b4" stroke="#fff" stroke-width="2"/><text x="700" y="537" font-family="Arial" font-size="12" fill="#ff00b4" stroke="#fff" stroke-width="0.6" paint-order="stroke">Coude droit</text></g><g><circle cx="725" cy="625" r="7" fill="#ff00b4" stroke="#fff" stroke-width="2"/><text x="735" y="617" font-family="Arial" font-size="12" fill="#ff00b4" stroke="#fff" stroke-width="0.6" paint-order="stroke">Poignet droit</text></g><g><circle cx="340" cy="655" r="7" fill="#ff00b4" stroke="#fff" stroke-width="2"/><text x="350" y="647" font-family="Arial" font-size="12" fill="#ff00b4" stroke="#fff" stroke-width="0.6" paint-order="stroke">Hanche gauche</text></g><g><circle cx="335" cy="720" r="7" fill="#ff00b4" stroke="#fff" stroke-width="2"/><text x="345" y="712" font-family="Arial" font-size="12" fill="#ff00b4" stroke="#fff" stroke-width="0.6" paint-order="stroke">Genou gauche</text></g><g><circle cx="320" cy="805" r="7" fill="#ff00b4" stroke="#fff" stroke-width="2"/><text x="330" y="797" font-family="Arial" font-size="12" fill="#ff00b4" stroke="#fff" stroke-width="0.6" paint-order="stroke">Cheville gauche</text></g><g><circle cx="555" cy="655" r="7" fill="#ff00b4" stroke="#fff" stroke-width="2"/><text x="565" y="647" font-family="Arial" font-size="12" fill="#ff00b4" stroke="#fff" stroke-width="0.6" paint-order="stroke">Hanche droite</text></g><g><circle cx="555" cy="720" r="7" fill="#ff00b4" stroke="#fff" stroke-width="2"/><text x="565" y="712" font-family="Arial" font-size="12" fill="#ff00b4" stroke="#fff" stroke-width="0.6" paint-order="stroke">Genou droit</text></g><g><circle cx="575" cy="805" r="7" fill="#ff00b4" stroke="#fff" stroke-width="2"/><text x="585" y="797" font-family="Arial" font-size="12" fill="#ff00b4" stroke="#fff" stroke-width="0.6" paint-order="stroke">Cheville droite</text></g></g>
+</svg>

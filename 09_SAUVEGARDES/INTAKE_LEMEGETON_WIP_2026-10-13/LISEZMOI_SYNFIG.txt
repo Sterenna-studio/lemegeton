@@ -1,0 +1,27 @@
+LEMEGETON — DÉMARRAGE SYNFIG STUDIO (WINDOWS)
+
+CONTENU DU PACK
+- assets_source/ : copie intégrale du pack original, conservée intacte.
+- PNG_IMPORTER_DANS_SYNFIG/ : une image PNG transparente par pièce, chacune placée sur une toile commune de 900 × 900 px pour préserver les positions lors de l’importation.
+- lemegeton_modele_maitre.ora : version à calques de référence, ouvrable dans un éditeur compatible OpenRaster.
+- modele_maitre_composite.png : assemblage transparent aplati.
+- apercu_assemblage.jpg : aperçu sur damier.
+- pivots_estimes.csv : coordonnées approximatives de pivots.
+
+IMPORTANT
+Ceci est un gabarit de placement, PAS un rig Synfig final. Les pivots sont estimés, les pièces sont disposées pour un premier assemblage et les raccords doivent être ajustés visuellement. Les assets source peuvent comporter de petits fragments de légendes issus de leur découpe. Aucune illustration nouvelle n’a été créée : seules les pièces du pack original ont été déplacées, redimensionnées ou retournées horizontalement pour la composition de référence.
+
+MÉTHODE LA PLUS SIMPLE DANS SYNFIG
+1. Télécharger et installer Synfig Studio depuis https://www.synfig.org/ .
+2. Ouvrir un nouveau document Synfig. Régler la zone de travail au format carré, par exemple 900 × 900 px si demandé.
+3. Dans Fichier > Importer, importer les PNG du dossier PNG_IMPORTER_DANS_SYNFIG, un par un. Tous font 900 × 900 px et conservent leur position dans la composition. Si Synfig demande de mettre à l’échelle les images importées pour les adapter au canevas, désactiver cette option ou conserver une taille cohérente.
+4. Renommer chaque calque et placer les éléments dans l’ordre de profondeur. L’ordre proposé par les numéros du dossier est un point de départ; réorganiser si nécessaire.
+5. Pour chaque pièce mobile, grouper son calque et utiliser les outils de transformation/rotation de Synfig. Pour le cut-out, suivre le tutoriel officiel : https://wiki.synfig.org/Doc%3ACut-out_Animation . Le système de bones de Synfig est une autre option, mais le présent pack ne contient pas de squelette Synfig déjà construit.
+6. Commencer par tester une rotation d’avant-bras et une inclinaison de tête. Déplacer les origines/pivots vers les articulations réelles avant de poser les images clés.
+7. Enregistrer le projet au format natif Synfig (.sif ou .sifz) dans un nouveau dossier de projet afin de garder les chemins vers les PNG.
+
+NOTES SUR LES ASSETS
+- Utiliser une seule pose de main par côté; les autres poses sont des variantes.
+- Les expressions ecran_*.png sont des variantes visuelles à substituer, pas des éléments à empiler les uns sur les autres.
+- Les images tête_face et torse_face_clavier sont des pièces complètes. Elles ne sont pas découpées en écran/coque ou clavier/torse, donc ne permettent pas encore une animation indépendante de ces sous-parties.
+- Les pivots du CSV sont des estimations de départ et doivent être vérifiés sur la toile.

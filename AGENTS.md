@@ -22,6 +22,7 @@ Ne pas supposer un historique Git, une publication ou une sauvegarde distante.
 - Conserver les scenes Blender retouchees par l'utilisateur, leurs `.blend1` et les anciennes etudes. Faire Save As avant toute regeneration.
 - Les builders remplacent leurs sorties : lire le script et identifier les chemins avant lancement. Ne pas lancer un builder dans une scene interactive non sauvegardee.
 - Les sauvegardes dans `09_SAUVEGARDES` sont locales, sur le meme disque. Ne pas les publier ni les supprimer automatiquement.
+- Exception demandee le 13 octobre 2026 : `INTAKE_LEMEGETON_WIP_2026-10-13` est suivi dans Git comme archive historique; ne pas le substituer au pipeline Blender actif.
 - Ne pas modifier les memoires externes de l'utilisateur. Les documents de passation dans ce projet sont le contexte durable.
 
 ## Frontieres

@@ -19,3 +19,8 @@
 /09_SAUVEGARDES/
 **/__pycache__/
 *.log
+
+# Import WIP explicitement demandé (package historique à préserver dans Git).
+!/09_SAUVEGARDES/
+!/09_SAUVEGARDES/INTAKE_LEMEGETON_WIP_2026-10-13/
+!/09_SAUVEGARDES/INTAKE_LEMEGETON_WIP_2026-10-13/**

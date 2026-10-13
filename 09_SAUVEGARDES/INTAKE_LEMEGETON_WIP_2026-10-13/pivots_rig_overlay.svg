@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="1000" viewBox="0 0 900 1000">
+<rect width="100%" height="100%" fill="none"/>
+<style>text{font-family:Arial,sans-serif;font-size:16px;fill:#ff00b4;stroke:#fff;stroke-width:.6;paint-order:stroke} .line{stroke:#ff00b4;stroke-width:2;fill:none;stroke-dasharray:5 4}.joint{fill:#ff00b4;stroke:#fff;stroke-width:2}</style>
+<circle class="joint" cx="244" cy="470" r="7"/><path class="line" d="M244 470 l 28 -20"/><text x="276" y="450">pivot_epaule_G</text>
+<circle class="joint" cx="205" cy="575" r="7"/><path class="line" d="M205 575 l 28 -20"/><text x="237" y="555">pivot_coude_G</text>
+<circle class="joint" cx="168" cy="640" r="7"/><path class="line" d="M168 640 l 28 -20"/><text x="200" y="620">pivot_poignet_G</text>
+<circle class="joint" cx="656" cy="470" r="7"/><path class="line" d="M656 470 l 28 -20"/><text x="688" y="450">pivot_epaule_D</text>
+<circle class="joint" cx="698" cy="575" r="7"/><path class="line" d="M698 575 l 28 -20"/><text x="730" y="555">pivot_coude_D</text>
+<circle class="joint" cx="730" cy="640" r="7"/><path class="line" d="M730 640 l 28 -20"/><text x="762" y="620">pivot_poignet_D</text>
+<circle class="joint" cx="345" cy="680" r="7"/><path class="line" d="M345 680 l 28 -20"/><text x="377" y="660">pivot_hanche_G</text>
+<circle class="joint" cx="340" cy="735" r="7"/><path class="line" d="M340 735 l 28 -20"/><text x="372" y="715">pivot_genou_G</text>
+<circle class="joint" cx="330" cy="820" r="7"/><path class="line" d="M330 820 l 28 -20"/><text x="362" y="800">pivot_cheville_G</text>
+<circle class="joint" cx="555" cy="680" r="7"/><path class="line" d="M555 680 l 28 -20"/><text x="587" y="660">pivot_hanche_D</text>
+<circle class="joint" cx="555" cy="735" r="7"/><path class="line" d="M555 735 l 28 -20"/><text x="587" y="715">pivot_genou_D</text>
+<circle class="joint" cx="570" cy="820" r="7"/><path class="line" d="M570 820 l 28 -20"/><text x="602" y="800">pivot_cheville_D</text>
+<circle class="joint" cx="450" cy="435" r="7"/><path class="line" d="M450 435 l 28 -20"/><text x="482" y="415">pivot_tete</text>
+</svg>
