@@ -24,3 +24,15 @@
 !/09_SAUVEGARDES/
 !/09_SAUVEGARDES/INTAKE_LEMEGETON_WIP_2026-10-13/
 !/09_SAUVEGARDES/INTAKE_LEMEGETON_WIP_2026-10-13/**
+
+# Public Lemegeton gallery: only curated, optimized derivatives are included.
+!/gallery/
+!/gallery/index.html
+!/gallery/app.js
+!/gallery/styles.css
+!/gallery/README.md
+!/gallery/.htaccess
+!/gallery/assets/
+!/gallery/assets/*.webp
+!/tools/check-gallery.mjs
+!/.github/workflows/deploy-gallery.yml

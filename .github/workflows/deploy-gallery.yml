@@ -1,0 +1,57 @@
+name: Deploy Lemegeton gallery
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'gallery/**'
+      - 'tools/check-gallery.mjs'
+      - '.github/workflows/deploy-gallery.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: lemegeton-gallery-ovh
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    name: Publish static gallery to /lemegeton/
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Check curated gallery files
+        run: node tools/check-gallery.mjs
+
+      - name: Setup SSH key
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.OVH_SSH_KEY }}" > ~/.ssh/ovh_key
+          chmod 600 ~/.ssh/ovh_key
+          ssh-keyscan -H "${{ secrets.OVH_HOST }}" >> ~/.ssh/known_hosts
+
+      - name: Ensure gallery destination exists
+        run: |
+          ssh -i ~/.ssh/ovh_key "${{ secrets.OVH_USER }}@${{ secrets.OVH_HOST }}" "mkdir -p /home/sterenn/www/lemegeton"
+
+      - name: Deploy only the gallery directory
+        # --delete is bounded to ~/www/lemegeton/; other site paths stay untouched.
+        run: |
+          rsync -avz --delete \
+            --exclude='/README.md' \
+            -e "ssh -i ~/.ssh/ovh_key" \
+            gallery/ "${{ secrets.OVH_USER }}@${{ secrets.OVH_HOST }}:/home/sterenn/www/lemegeton/"
+
+      - name: Smoke test public page and image
+        run: |
+          curl -fsS https://sterenna.fr/lemegeton/ | grep -q 'Lemegéton — carnet de création'
+          curl -fsS -o /dev/null https://sterenna.fr/lemegeton/assets/concept-board.webp
+
+      - name: Cleanup
+        if: always()
+        run: rm -f ~/.ssh/ovh_key

@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101110">
+  <meta name="description" content="Lemegéton, un petit robot Minitel imaginé entre bois patiné, écran cathodique et signaux lumineux. Carnet de recherches visuelles et d’études 3D par Sterenna.">
+  <link rel="canonical" href="https://sterenna.fr/lemegeton/">
+  <link rel="icon" href="data:,">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Lemegéton — carnet de création">
+  <meta property="og:description" content="Des premières planches aux études 3D d’un robot Minitel rétro.">
+  <meta property="og:url" content="https://sterenna.fr/lemegeton/">
+  <meta property="og:image" content="https://sterenna.fr/lemegeton/assets/concept-greeting.webp">
+  <title>Lemegéton — carnet de création | Sterenna</title>
+  <link rel="stylesheet" href="./styles.css">
+  <script src="./app.js" defer></script>
+</head>
+<body id="top">
+  <a class="skip-link" href="#galerie">Aller à la galerie</a>
+  <header class="topbar">
+    <a class="wordmark" href="https://sterenna.fr/" aria-label="Sterenna, accueil"><span class="wordmark-mark">S</span><span>STERENNA <i>·</i> CARNET DE CRÉATION</span></a>
+    <nav aria-label="Navigation principale">
+      <a href="#galerie">Galerie</a>
+      <a href="#atelier">Études 3D</a>
+      <a class="nav-back" href="https://sterenna.fr/minitel/">Le Minitel interactif <span aria-hidden="true">↗</span></a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="signal-dot"></span> PERSONNAGE EN COURS · ARCHIVE VISUELLE</p>
+        <h1 id="hero-title">Un Minitel.<br><em>Une petite vie.</em></h1>
+        <p class="hero-lead">Lemegéton prend forme entre bois patiné, touches colorées et signaux cathodiques. Voici son carnet de création, des premières idées aux essais de volume.</p>
+        <a class="button button-primary" href="#galerie">Parcourir les images <span aria-hidden="true">↓</span></a>
+        <div class="hero-facts" aria-label="Contenu de la galerie">
+          <span><b>09</b> images de conception</span>
+          <span><b>03</b> études 3D</span>
+          <span><b>01</b> personnage</span>
+        </div>
+      </div>
+      <figure class="hero-art">
+        <div class="hero-orbit hero-orbit-one"></div><div class="hero-orbit hero-orbit-two"></div>
+        <img src="./assets/concept-greeting.webp" alt="Robot Minitel en bois levant sa main, avec une antenne rose lumineuse" fetchpriority="high">
+        <figcaption><span class="caption-index">FIG. 01</span> Le premier salut</figcaption>
+        <span class="hero-stamp" aria-hidden="true">3615<br>LEMEGETON</span>
+      </figure>
+      <div class="hero-side-note" aria-hidden="true">PIXELS · BOIS · SIGNAL</div>
+    </section>
+
+    <section class="gallery-section" id="galerie" aria-labelledby="gallery-title">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">LE CARNET, OUVERT</p>
+          <h2 id="gallery-title">Recherches &amp; variantes</h2>
+        </div>
+        <p class="section-intro">Chaque image garde la trace d’une piste. Les planches définissent le caractère; les études 3D explorent la forme et la matière.</p>
+      </div>
+      <div class="filter-row" role="group" aria-label="Filtrer les images">
+        <button class="filter is-active" type="button" data-filter="all" aria-pressed="true">Tout <span>12</span></button>
+        <button class="filter" type="button" data-filter="concept" aria-pressed="false">Concept art <span>5</span></button>
+        <button class="filter" type="button" data-filter="reference" aria-pressed="false">Fiches &amp; storyboard <span>4</span></button>
+        <button class="filter" type="button" data-filter="atelier" aria-pressed="false">Études 3D <span>3</span></button>
+      </div>
+      <div class="gallery-grid" id="gallery-grid" aria-live="polite"></div>
+      <p class="empty-state" id="empty-state" hidden>Aucune image dans cette sélection.</p>
+    </section>
+
+    <section class="atelier-band" id="atelier" aria-labelledby="atelier-title">
+      <div class="atelier-copy">
+        <p class="eyebrow"><span class="signal-dot signal-dot-cyan"></span> DANS L’ATELIER</p>
+        <h2 id="atelier-title">Du dessin<br>à la matière.</h2>
+        <p>Les vues 3D ci-dessus servent à comparer silhouette et texture. Le maillage, les articulations, les pivots et l’animation demandent encore du travail; aucune version n’est présentée comme définitive.</p>
+        <a class="text-link" href="https://sterenna.fr/minitel/">Voir le Minitel interactif <span aria-hidden="true">↗</span></a>
+      </div>
+      <div class="atelier-note">
+        <span class="note-number">03</span>
+        <p>modèles<br>en étude</p>
+        <div class="note-rule"></div>
+        <small>Les scènes Blender et modèles sources ne sont pas diffusés depuis cette galerie.</small>
+      </div>
+    </section>
+
+    <section class="about-strip" aria-label="À propos du projet">
+      <span class="about-icon" aria-hidden="true">◉</span>
+      <p><strong>Lemegéton est un projet vivant.</strong> Cette galerie rassemble ses images de travail. Les versions imparfaites sont montrées comme des étapes, pas comme des livrables validés.</p>
+      <a href="https://sterenna.fr/">Sterenna.fr <span aria-hidden="true">↗</span></a>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <a class="footer-brand" href="https://sterenna.fr/">STERENNA</a>
+    <span>Un carnet de création · Limoges, France</span>
+    <a href="#top">Retour en haut ↑</a>
+  </footer>
+
+  <dialog class="lightbox" id="lightbox" aria-labelledby="lightbox-title">
+    <button class="lightbox-close" type="button" data-close aria-label="Fermer l’image">×</button>
+    <button class="lightbox-arrow lightbox-prev" type="button" data-previous aria-label="Image précédente">←</button>
+    <figure class="lightbox-figure">
+      <img id="lightbox-image" src="" alt="">
+      <figcaption><span id="lightbox-category"></span><h2 id="lightbox-title"></h2><p id="lightbox-description"></p></figcaption>
+    </figure>
+    <button class="lightbox-arrow lightbox-next" type="button" data-next aria-label="Image suivante">→</button>
+  </dialog>
+</body>
+</html>
+
+

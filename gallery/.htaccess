@@ -1,0 +1,6 @@
+Options -Indexes
+AddType image/webp .webp
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/webp "access plus 1 month"
+</IfModule>
