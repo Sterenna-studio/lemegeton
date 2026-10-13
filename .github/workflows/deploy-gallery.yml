@@ -51,6 +51,7 @@ jobs:
         run: |
           curl -fsS https://sterenna.fr/lemegeton/ | grep -q 'Lemegéton — carnet de création'
           curl -fsS -o /dev/null https://sterenna.fr/lemegeton/assets/concept-board.webp
+          curl -fsS -o /dev/null https://sterenna.fr/lemegeton/assets/icon.webp
 
       - name: Cleanup
         if: always()

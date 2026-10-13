@@ -10,6 +10,7 @@ const app = await readFile(join(gallery, "app.js"), "utf8");
 const css = await readFile(join(gallery, "styles.css"), "utf8");
 assert.match(html, /<html lang="fr">/);
 assert.ok(html.includes("https://sterenna.fr/lemegeton/"));
+assert.ok(html.includes('./assets/icon.webp'));
 assert.match(html, /<dialog[^>]*id="lightbox"/);
 assert.match(css, /prefers-reduced-motion/);
 assert.match(css, /max-width: 600px/);
@@ -31,7 +32,10 @@ for (const relative of assets) {
   total += bytes.length;
 }
 const media = await readdir(join(gallery, "assets"));
-assert.deepEqual(media.sort(), assets.map((item) => item.slice("assets/".length)).sort());
+assert.deepEqual(media.sort(), [...assets.map((item) => item.slice("assets/".length)), "icon.webp"].sort());
+const icon = await readFile(join(gallery, "assets/icon.webp"));
+assert.equal(icon.toString("ascii", 0, 4), "RIFF");
+assert.equal(icon.toString("ascii", 8, 12), "WEBP");
 for (const forbidden of [".glb", ".gltf", ".blend", ".blend1", ".zip", ".png", ".jpg"]) {
   assert.ok(!media.some((file) => file.toLowerCase().endsWith(forbidden)), `Source asset leaked: ${forbidden}`);
 }
