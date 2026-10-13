@@ -22,7 +22,7 @@
 Lecture du code Web, configurations/lockfile, scripts Blender, pipeline,
 rapports, inventaire et controle des 51 empreintes historiques : aucune alteration.
 L'ancien inventaire et les rapports Blender avant revalidation sont conserves
-dans `historique/`. Inventaire actuel `06_MODEL` : 242 fichiers, 701 700 017 octets.
+dans `historique/`. Inventaire actuel Inventaire historique `06_MODEL` : 242 fichiers, 701 700 017 octets au 6 octobre; voir `ORGANISATION_ASSETS_2026-10-13.md` pour le rangement courant du dépôt dédié.
 Les scopes generiques Canvas/Texture/VDT futur restent distincts des tests
 effectifs sur le terminal fourni.
 

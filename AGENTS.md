@@ -1,52 +1,35 @@
 # Instructions pour les prochains agents
 
-> **Dépôt dédié depuis le 12 octobre 2026.** Ce dossier était `lemegeton/` dans
-> `Sterenna-studio/minitel-musee` (alors `lemegeton-minitel`) ; il vit maintenant
-> seul dans [Sterenna-studio/lemegeton-core](https://github.com/Sterenna-studio/lemegeton-core) (public),
-> copie de travail `C:\DEV\repos\lemegeton-core`. Seuls les formats texte sont versionnés
-> (`.gitignore`) ; les binaires restent dans la copie de travail. Le site Web
-> (« `07_WEB_MINITEL` » ci-dessous) est le dépôt
-> [minitel-musee](https://github.com/Sterenna-studio/minitel-musee), publié sur
-> https://sterenna.fr/minitel/ ; les sources des terminaux (Minitel, téléviseur, tables,
-> ex-`06_MODEL/`) y sont restées, dans `sources/`. Historique de la migration du
-> 6 octobre : `08_AUDIT/migration-2026-10-06/MIGRATION.md`.
-
 Commencer par `PASSATION_AGENTS.md`, `08_AUDIT/AUDIT_GLOBAL.md`, puis le README
-du sous-projet concerne. Ce dossier est le depot Git `Sterenna-studio/lemegeton-core`, qui accueille tout ce qui touche a la creation de Lemegeton.
-Ne pas supposer un historique Git, une publication ou une sauvegarde distante.
+du sous-projet concerné. Ce dépôt contient le cœur créatif du personnage; le
+site Minitel/Web vit dans le dépôt `minitel-musee`.
 
-## Preservation
+## Préservation
 
-- Sources originales dans `01_REFERENCES`, `02_SOURCES_3D`, `03_RIGS`, `06_MODEL` : ne pas ecraser, deplacer ni supprimer sans demande explicite.
-- `TRI_MANIFEST.csv` contient les SHA-256 des 51 fichiers initiaux. Les nouveaux assets sont inventories dans `07_WEB_MINITEL/docs/asset-audit/inventory.json`.
-- Conserver les scenes Blender retouchees par l'utilisateur, leurs `.blend1` et les anciennes etudes. Faire Save As avant toute regeneration.
-- Les builders remplacent leurs sorties : lire le script et identifier les chemins avant lancement. Ne pas lancer un builder dans une scene interactive non sauvegardee.
-- Les sauvegardes dans `09_SAUVEGARDES` sont locales, sur le meme disque. Ne pas les publier ni les supprimer automatiquement.
-- Exception demandee le 13 octobre 2026 : `INTAKE_LEMEGETON_WIP_2026-10-13` est suivi dans Git comme archive historique; ne pas le substituer au pipeline Blender actif.
-- Ne pas modifier les memoires externes de l'utilisateur. Les documents de passation dans ce projet sont le contexte durable.
+- Les sources d’origine, références, rigs autonomes et scènes Blender sont des
+  éléments de travail. Ne pas écraser, supprimer ou remplacer une variante sans
+  demande explicite.
+- Les packages sous `03_RIGS/` utilisent des chemins relatifs : garder chaque
+  package complet.
+- Conserver les scènes Blender retouchées, leurs `.blend1` et les anciennes
+  études. Faire « Save As » avant toute régénération.
+- Les builders peuvent remplacer leurs sorties : lire le script et identifier
+  ses chemins avant de le lancer.
+- Les binaires de travail sont locaux et ignorés par Git. Ne pas forcer leur
+  ajout au dépôt. L’archive `09_SAUVEGARDES/INTAKE_LEMEGETON_WIP_2026-10-13`
+  est l’exception demandée; elle reste une archive historique et ne remplace
+  pas le pipeline Blender actif.
+- Les modèles Cyber Djinn et leurs textures sont conservés hors de ce dépôt,
+  dans `C:\DEV\assets\models-3d\Cyber-Djinn\`.
+- `TRI_MANIFEST.csv` porte les empreintes des 51 fichiers initiaux. Les
+  déplacements doivent conserver les octets et actualiser leurs chemins.
 
-## Frontieres
+## État du projet
 
-- Personnage Lemegeton : partition et rig experimentaux, pas de production validee. La video actuelle a ete rejetee. Geometrie, doigts et pivots avant animation.
-- PartField : faisabilite examinee, GPU WSL2 verifie au 5 octobre ; aucune installation/inference encore validee. Refaire les controles materiels avant essai.
-- Web Minitel : application React/TS autonome dans `07_WEB_MINITEL`, source texturee fournie, moteur generique dans `src/videotex`. Garder Lemegéton dans `src/demo`.
-- `white_mesh.glb` est un nouvel asset non valide. Ne pas remplacer automatiquement le GLB actif par ce fichier.
+Le personnage et ses rigs restent expérimentaux, pas prêts pour la production.
+Les découpes, pivots, doigts et contrôles doivent être validés avant animation.
+Ne pas présenter une vérification structurelle comme une validation artistique.
 
-## Validation Web
-
-Depuis `07_WEB_MINITEL` : `npm ci`, `npm run typecheck`, `npm run lint`,
-`npm test`, `npm run build`. Pour les tests navigateur : serveur dev sur 5174,
-puis `npm run test:browser` (Edge installe). `node tools/verify_production.mjs`
-cree puis arrete son propre serveur de preview sur un port libre.
-Ne pas arreter le serveur d'un autre projet : 5173 etait deja occupe.
-
-Reutiliser les outils locaux et le lockfile. Dans cet environnement Windows,
-esbuild et Edge peuvent necessiter l'autorisation de sortir du bac a sable ;
-ne pas confondre un refus de permission avec un bug applicatif.
-Modifier manuellement avec apply_patch, ne pas utiliser de contournements `any`.
-Limiter les changements au sujet choisi et ajouter des tests de regression.
-
-Mettre a jour preuves et passation apres une session. Distinguer tests unitaires,
-Blender batch, navigateur reel, viewport mobile emule et appareil physique.
-Ne pas annoncer un test de flux VDT, de serveur, de protocole, de materiel ou une
-validation artistique sans preuve correspondante. Aucune publication sans accord.
+Aucune publication n’est implicite. Pour le site Minitel, suivre les consignes
+et les tests dans le dépôt `minitel-musee`. Ne pas supposer que ses fichiers
+ou dépendances se trouvent dans ce dépôt.

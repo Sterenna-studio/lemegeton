@@ -1,28 +1,11 @@
 # Lemegeton - pipeline de travail
 
-## Branche Web Minitel - 6 octobre 2026
+## Application Web Minitel
 
-Une application independante est ajoutee dans
-[07_WEB_MINITEL](https://github.com/Sterenna-studio/minitel-musee/blob/main/docs/USAGE.md), avec une copie preparee du GLB
-Minitel de `06_MODEL`. Le moteur d'ecran est generique ; Lemegéton n'est que
-la premiere demonstration. Cette branche ne remplace ni la segmentation
-PartField prevue ci-dessous, ni la correction du personnage.
-
-Ordre de cette branche : audit asset -> copie orientee et CRT separe ->
-terminal Canvas/Videotex -> camera/clavier/anchors -> accessibilite/fallback ->
-validation navigateur et build -> preparation d'un modele ameliore.
-Lancement : `cd 07_WEB_MINITEL`, `npm ci`, `npm run dev`, port 5174.
-Instructions de modele, nouvel ecran et accessoire dans le README de l'application.
-
-Premiere version verifiee : compilation, lint, TypeScript, 6 tests unitaires,
-10 tests navigateur et deux essais du build de production. Les captures et
-limites sont dans [VERIFICATION.md](https://github.com/Sterenna-studio/minitel-musee/blob/main/docs/VERIFICATION.md).
-Ces essais ne constituent pas une validation artistique ou sur telephone physique.
-
-- [ ] Valider artistiquement la copie texturee fournie et sa teinte de plastique.
-- [ ] Essayer sur appareils mobiles physiques, puis mesurer textures et draw calls.
-- [ ] Preparer une coque/CRT amelioree selon [MODEL_PREPARATION.md](https://github.com/Sterenna-studio/minitel-musee/blob/main/docs/MODEL_PREPARATION.md), avec profil d'ecran et anchors adaptes.
-- [ ] Choisir ensuite une integration reseau/VDT ou narrative sans coupler le moteur au personnage.
+L’application Web et les modèles de terminaux sont dans le dépôt séparé
+[minitel-musee](https://github.com/Sterenna-studio/minitel-musee). Les
+instructions de lancement et de validation sont maintenues dans ce dépôt.
+Ce pipeline couvre le personnage, les sources 3D et le travail Blender.
 
 ## Branche personnage - reprise du 5 octobre 2026
 
