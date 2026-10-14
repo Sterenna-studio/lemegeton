@@ -1,0 +1,109 @@
+{
+  "version": 1,
+  "updated": "2026-10-14",
+  "description": "Émotions de référence de Lemegeton. Les identifiants sont ceux de web-eye-animation (MIT, CyberAgentAILab), déjà partagés par nitro-clicker, Sigil, le firmware Minitel_Sigil et minitel-musee. Les autres supports s'y rattachent par la table « equivalents ».",
+  "source_implementation": {
+    "library": "web-eye-animation",
+    "license": "MIT, CyberAgentAILab",
+    "reference_copy": "nitro-clicker/js/vendor/web-eye-animation.js (gelée le 2026-07-06)",
+    "api": "window.eyes.emotion(id), window.eyes.move(x, y), window.eyes.target(x, y, ms)"
+  },
+  "default": "joy",
+  "idle": "sleepy",
+  "emotions": [
+    {
+      "id": "joy",
+      "label": { "fr": "Joie", "en": "Joy" },
+      "intent": "État de repos accueillant, émotion par défaut après une réaction.",
+      "equivalents": { "minitel-face": "happy", "zyra": "happy / JOIE" }
+    },
+    {
+      "id": "sadness",
+      "label": { "fr": "Tristesse", "en": "Sadness" },
+      "intent": "Échec, absence, fin de séance.",
+      "equivalents": { "minitel-face": null, "zyra": null },
+      "note": "Aucun équivalent côté minitel-face ; tired en est le plus proche."
+    },
+    {
+      "id": "surprise",
+      "label": { "fr": "Surprise", "en": "Surprise" },
+      "intent": "Événement soudain : nouveau morceau, raid, don de sub.",
+      "equivalents": { "minitel-face": "surprised", "zyra": "surprised / SURPRIS" }
+    },
+    {
+      "id": "anger",
+      "label": { "fr": "Colère", "en": "Anger" },
+      "intent": "Erreur, refus, blocage.",
+      "equivalents": { "minitel-face": "angry", "zyra": "angry / COLERE" }
+    },
+    {
+      "id": "fear",
+      "label": { "fr": "Peur", "en": "Fear" },
+      "intent": "Danger, alerte, surcharge.",
+      "equivalents": { "minitel-face": "fear (LibEyes seulement)", "zyra": null }
+    },
+    {
+      "id": "disgust",
+      "label": { "fr": "Dégoût", "en": "Disgust" },
+      "intent": "Rejet d'une entrée, contenu indésirable.",
+      "equivalents": { "minitel-face": "disgust (LibEyes seulement)", "zyra": null }
+    },
+    {
+      "id": "confusion",
+      "label": { "fr": "Perplexité", "en": "Confusion" },
+      "intent": "Question, demande inattendue, récompense personnalisée Twitch.",
+      "equivalents": { "minitel-face": "curious (proche)", "zyra": "curious / CURIEUX (proche)" }
+    },
+    {
+      "id": "love",
+      "label": { "fr": "Affection", "en": "Love" },
+      "intent": "Remerciement, follow, attention reçue.",
+      "equivalents": { "minitel-face": "love (LibEyes, Zyra)", "zyra": "love / AMOUR" }
+    },
+    {
+      "id": "sleepy",
+      "label": { "fr": "Sommeil", "en": "Sleepy" },
+      "intent": "Veille, mesh endormie, inactivité prolongée.",
+      "equivalents": { "minitel-face": "tired", "zyra": "tired / FATIGUE" }
+    },
+    {
+      "id": "excitement",
+      "label": { "fr": "Excitation", "en": "Excitement" },
+      "intent": "Grande nouvelle : abonnement, prestige, drop.",
+      "equivalents": { "minitel-face": "happy (proche)", "zyra": "happy / JOIE (proche)" }
+    }
+  ],
+  "unmapped_moods": {
+    "description": "Humeurs des visages minitel-face et Zyra sans émotion web correspondante : ce sont des postures durables plutôt que des réactions.",
+    "moods": ["default", "neutral / NEUTRE", "calm / CALME", "focused / FOCUS"]
+  },
+  "triggers": {
+    "description": "Déclencheurs connus, relevés dans le code au 2026-10-14.",
+    "twitch": {
+      "source": "nitro-clicker/obs-lemegeton-twitch.html",
+      "channel.follow": "love",
+      "channel.subscribe": "excitement",
+      "channel.subscription.gift": "surprise",
+      "channel.raid": "surprise",
+      "channel.cheer": "joy",
+      "channel.channel_points_custom_reward_redemption.add": "confusion",
+      "retour": "joy après 4 s"
+    },
+    "radio": {
+      "source": "nitro-clicker/obs-lemegeton-radio.html",
+      "changement de morceau": "surprise",
+      "niveau audio": "choisi selon le volume (pickAudioEmo)"
+    },
+    "obs": {
+      "source": "nitro-clicker/obs-lemegeton.html",
+      "démarrage": "joy",
+      "inactivité": "sleepy",
+      "autonome": "émotion tirée au hasard toutes les ~7 s"
+    },
+    "sigil": {
+      "source": "sigil/src/sigil_core/webui_static/visage.js, GET /api/visage",
+      "agent actif": "émotion rejouée quand l'état change",
+      "mesh endormie": "yeux mi-clos"
+    }
+  }
+}

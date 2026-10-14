@@ -24,6 +24,14 @@ site Minitel/Web vit dans le dépôt `minitel-musee`.
 - `TRI_MANIFEST.csv` porte les empreintes des 51 fichiers initiaux. Les
   déplacements doivent conserver les octets et actualiser leurs chemins.
 
+## Canon
+
+- `canon/` fait foi pour le personnage dans les autres dépôts. Toute nouvelle
+  apparition de Lemegeton, ou tout changement de sa représentation, met à jour
+  `canon/apparitions.json`.
+- Le dépôt est public : aucune donnée d'infrastructure privée dans `canon/`.
+  Lancer `python tools/check_canon.py` avant de commiter.
+
 ## État du projet
 
 Le personnage et ses rigs restent expérimentaux, pas prêts pour la production.

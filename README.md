@@ -13,10 +13,18 @@ Lire [PASSATION_AGENTS.md](PASSATION_AGENTS.md), [AGENTS.md](AGENTS.md),
 préservés : ne pas supprimer ni remplacer une variante sur la seule base de son
 nom. Les binaires de travail restent locaux et ne sont pas versionnés par Git.
 
+## Canon
+
+[canon/](canon/README.md) fait foi pour le personnage dans tous les projets :
+émotions de référence, registre des projets où Lemegeton apparaît, technologies
+du visage, identité et étapes vers le rassemblement des dépôts. Vérification :
+`python tools/check_canon.py`.
+
 ## Classement des ressources
 
 | Dossier | Contenu |
 | --- | --- |
+| [canon](canon/README.md) | Ce qui fait foi pour le personnage, partagé par les autres projets |
 | [01_REFERENCES](01_REFERENCES/README.md) | Concept art, fiches techniques et storyboard 2D |
 | `02_SOURCES_3D/` | Modèles GLB sources conservés tels que reçus |
 | `03_RIGS/` | Packages V1/V2/V3 autonomes, avec scripts, viewer et dépendances |
