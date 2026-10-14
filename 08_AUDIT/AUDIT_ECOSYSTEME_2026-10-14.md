@@ -5,7 +5,7 @@ dépendent les uns des autres, **avant** toute réorganisation. Aucun code n'a �
 modifié pour cet audit.
 
 Méthode : lecture des dépôts locaux et de leur branche distante après `git fetch`
-(certains clones locaux sont en retard, voir § 6), requêtes `gh` (visibilité, PR,
+(certains clones locaux étaient en retard, voir § 6 ; mis à jour depuis, voir § 8), requêtes `gh` (visibilité, PR,
 issues), contrôle HTTP des pages publiques, relevé des processus en cours sur le
 PC principal. Les dépôts privés sont décrits sans détail d'infrastructure, car ce
 dépôt est public.
@@ -30,7 +30,7 @@ flowchart LR
     FACE[minitel-face<br/>serveur de visage]
     AUTO[Minitel-Face-Autonomous]
     MSIG[Minitel-Sigil]
-    GW[3615-gateways<br/>prototype]
+    GW[3615-gateways<br/>archivé]
     KOR[Korigan<br/>3615, radio, caméra]
     MZ[MiniZyraServer]
   end
@@ -100,7 +100,7 @@ exécuté), **archive**.
 | Activité | 20 commits en 90 j | 14 commits en 90 j | 10 commits en 90 j | 0 (dernier le 2026-06-29) | dernier commit distant le 2026-09-27 | 35, dernier le 2026-09-23 |
 | Lemegeton | 7 bibliothèques de visages, API `/mood`, `/gaze`, `/seq` | Visages embarqués (humeurs Zyra) | Yeux Lemegeton en G1, suit la mesh Sigil | Page AVATAR / LEMEGETON | Runtime 3615 (avatar), voix Piper, pack vocal, **caméra PTZ pilotée comme regard de Lemegéton**, pilotage de minitel-face, oracle `/leme` | Aucun (serveur Minitel général) |
 | Pourquoi c'est utile | Seul moteur de visage multi-styles côté Minitel | Minitel sans serveur | Le Minitel est un terminal de Sigil, en service | Documentation et historique du concept | Plan de contrôle des services, radio | Serveur Telnet MINI-STAR, atelier d'images VDT |
-| État | **actif** | **actif** (correctif G1 pas encore flashé) | **actif**, en service (satellite Minitel) | **référence** (le README renvoie vers Korigan) | **actif** à distance, clone local en retard | **actif** |
+| État | **actif** | **actif** (correctif G1 pas encore flashé) | **actif**, en service (satellite Minitel) | **archive** depuis le 2026-10-14 (le README renvoie vers Korigan) | **actif** (clone local mis à jour le 2026-10-14) | **actif** |
 
 ### Autres
 
@@ -119,7 +119,7 @@ exécuté), **archive**.
 | Minitel-Sigil | minitel-musee | **portage** en TypeScript (lemegetonEyes.ts) | Idem, troisième exemplaire |
 | minitel-face | minitel-musee | **portage** (LibEyes, LibZyraEyes, FaceRenderer) | Correctif G1 du 2026-10-06 reporté dans 3 dépôts |
 | minitel-face | Minitel-Face-Autonomous | **portage** des 6 visages | Idem |
-| 3615-gateways | Korigan | **reprise du runtime** (`services/3615-gateways`) | Le dépôt public n'est plus la version en service |
+| 3615-gateways | Korigan | **reprise du runtime** (`services/3615-gateways`) | Le dépôt public, archivé, n'est plus la version en service |
 | Korigan | minitel-face | **pilotage** par HTTP (humeur, regard, séquence, bibliothèque) | Korigan dépend du serveur de visage |
 | sigil | Minitel-Sigil | **pilotage** (`/api/visage`, émotions) | En service |
 | gwen-ha-star-static | Korigan | **données** : `lemegeton-state.json` publié sur nitro.sterenna.fr, lu par l'avatar 3615 | Vocabulaire hors canon (eyes/mouth/mood libre) |
@@ -163,7 +163,7 @@ seulement où ils se trouvent, pour qu'un regroupement n'en oublie aucun.
 
 ## 6. Points d'attention
 
-- **Clones locaux en retard** : Korigan (136 commits de retard, dont la caméra
+- ~~**Clones locaux en retard**~~ (réglé, § 8) : Korigan (136 commits de retard, dont la caméra
   PTZ de Lemegéton et des évolutions de la radio), goetia_v2 (44),
   gwen-ha-star-static (4). **minitel-face a divergé** : 1 commit local non poussé
   (« Add local Minitel command reference ») et 2 commits distants (PR #7).
@@ -173,15 +173,15 @@ seulement où ils se trouvent, pour qu'un regroupement n'en oublie aucun.
   est une variable d'environnement ; aucun dépôt local ne contient ce service.
 - **État de la radio hors canon** : `lemegeton-state.json` nomme yeux et bouche à
   sa façon et décrit l'humeur en texte libre.
-- **3615-gateways** est public et présenté comme prototype ; la version en service
+- ~~**3615-gateways**~~ (archivé, § 8) est public et présenté comme prototype ; la version en service
   est privée, dans Korigan.
 
 ## 7. Propositions de tri (sans code)
 
-1. **Mettre à jour les clones locaux** (Korigan, goetia_v2, gwen-ha-star-static) et
+1. ✅ **Mettre à jour les clones locaux** (Korigan, goetia_v2, gwen-ha-star-static) et
    **résoudre la divergence de minitel-face**, pour que les audits suivants partent
    de la bonne version.
-2. **Marquer 3615-gateways comme archivé** sur GitHub (lecture seule), puisque son
+2. ✅ **Marquer 3615-gateways comme archivé** sur GitHub (lecture seule), puisque son
    README le désigne déjà comme référence historique.
 3. **Retirer goetia et goetia_v2 du périmètre** : aucun lien fonctionnel.
 4. **Décider la place de MiniZyraServer** : serveur Minitel général, sans
@@ -191,3 +191,38 @@ seulement où ils se trouvent, pour qu'un regroupement n'en oublie aucun.
    exemplaires sont alors des portages déclarés.
 6. **Garder ce rapport à jour** à chaque nouvelle apparition de Lemegeton, avec
    [canon/apparitions.json](../canon/apparitions.json).
+
+## 8. Suivi
+
+### 2026-10-14 — propositions 1 et 2 faites
+
+- **Clones mis à jour** (avance rapide, aucune modification locale) : Korigan
+  (136 commits rattrapés, dernier commit le 2026-09-27), goetia_v2 (44),
+  gwen-ha-star-static (4).
+- **minitel-face** : le commit local « Add local Minitel command reference »
+  a été replacé après la PR #7 et poussé (`049938c`) ; la branche locale
+  fusionnée `docs/lien-minitel-musee` a été supprimée. Reste la branche locale
+  `feat/web3d-minitel` (1 commit jamais fusionné, branche distante supprimée,
+  ancienne intégration 3D remplacée par minitel-musee), gardée en attendant une
+  décision.
+- **3615-gateways archivé** sur GitHub (lecture seule, réversible) ; noté dans
+  [canon/apparitions.json](../canon/apparitions.json).
+
+### Hors périmètre Lemegeton, relevé pendant l'audit
+
+Les sous-sites `nitro.sterenna.fr/zevent-booster/` et `/rpg/` étaient en 404 :
+le déploiement de gwen-ha-star-static synchronise `~/nitro/` en supprimant tout
+dossier absent de sa liste d'exclusions, et ces deux-là n'y figuraient pas.
+
+- **zevent-booster** : écarté du site (décision de l'utilisateur) ; son
+  déploiement était déjà désactivé.
+- **Aphalone — Crystal Quest** (ex-`/rpg/`) : intégré à Skill Arena, en ligne sur
+  `nitro.sterenna.fr/arena/games/aphalone/` (skill-arena #12, README repris en
+  #13) ; le dépôt `aphalone-crystal-quest` est archivé et son déploiement désactivé.
+- Tout nouveau sous-site publié sous `~/nitro/` par un autre dépôt doit être ajouté
+  aux exclusions du déploiement de gwen-ha-star-static.
+
+### Restent ouverts
+
+Propositions 3 à 6, et les points d'attention sur l'overlay OBS radio, l'oracle
+`/leme` et l'état de la radio hors canon (§ 6).

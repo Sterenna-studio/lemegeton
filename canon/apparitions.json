@@ -54,10 +54,11 @@
     {
       "repo": "Sterenna-studio/3615-gateways",
       "visibility": "public",
-      "role": "Prototype historique de la passerelle Minitel : page AVATAR / LEMEGETON, avatar-state.json (mood neutral)",
+      "role": "Prototype historique (archivé) de la passerelle Minitel : page AVATAR / LEMEGETON, avatar-state.json (mood neutral)",
       "uses": ["état d'avatar", "image Vidéotex"],
       "canon_status": "own",
-      "note": "Le runtime actif a été déplacé dans un dépôt privé (Korigan)."
+      "archived": "2026-10-14",
+      "note": "Archivé sur GitHub (lecture seule). Le runtime actif a été déplacé dans un dépôt privé (Korigan)."
     },
     {
       "repo": "Korigan",
