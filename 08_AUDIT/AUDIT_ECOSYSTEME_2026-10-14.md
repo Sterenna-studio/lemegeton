@@ -104,11 +104,15 @@ exécuté), **archive**.
 
 ### Autres
 
-| | sigil | goetia, goetia_v2 |
-| --- | --- | --- |
-| Lemegeton | Page `/visage` (copie de web-eye-animation), émotions envoyées au Minitel | Une mention dans le codex de goetia |
-| Lien réel | Fort : pilote le Minitel-Sigil, en service sur le PC principal | Aucun : seule la parenté de nom (Petite Clé de Salomon) les rapproche |
-| État | **actif** | hors périmètre (en ligne sur nitro.sterenna.fr/goetia, plus touchés depuis juin) |
+| | sigil |
+| --- | --- |
+| Lemegeton | Page `/visage` (copie de web-eye-animation), émotions envoyées au Minitel |
+| Lien réel | Fort : pilote le Minitel-Sigil, en service sur le PC principal |
+| État | **actif** |
+
+**Hors périmètre** (décision du 2026-10-14) : goetia et goetia_v2. Une seule
+mention dans le codex de goetia et une parenté de nom (Petite Clé de Salomon),
+sans lien fonctionnel.
 
 ## 3. Liens entre dépôts
 
@@ -183,7 +187,7 @@ seulement où ils se trouvent, pour qu'un regroupement n'en oublie aucun.
    de la bonne version.
 2. ✅ **Marquer 3615-gateways comme archivé** sur GitHub (lecture seule), puisque son
    README le désigne déjà comme référence historique.
-3. **Retirer goetia et goetia_v2 du périmètre** : aucun lien fonctionnel.
+3. ✅ **Retirer goetia et goetia_v2 du périmètre** : aucun lien fonctionnel.
 4. **Décider la place de MiniZyraServer** : serveur Minitel général, sans
    Lemegeton ; il fait partie de l'écosystème Minitel, pas du personnage.
 5. **Désigner une référence par famille d'yeux** dans le canon : web-eye-animation
@@ -208,6 +212,15 @@ seulement où ils se trouvent, pour qu'un regroupement n'en oublie aucun.
 - **3615-gateways archivé** sur GitHub (lecture seule, réversible) ; noté dans
   [canon/apparitions.json](../canon/apparitions.json).
 
+### 2026-10-14 — proposition 3 et nettoyage de minitel-face
+
+- **goetia et goetia_v2 sortis du périmètre** (décision de l'utilisateur) : ils
+  ne figurent plus dans les fiches et n'entrent pas dans le registre.
+- **Branche locale `feat/web3d-minitel` de minitel-face supprimée** (`f32fc83`,
+  « integrate Minitel 3D Web project in web3d/ », 2026-10-06) : ancienne
+  intégration 3D remplacée par minitel-musee. Reste dans minitel-face un dossier
+  `web3d/` qui ne contient que ses `node_modules` (341 Mo, ignoré par Git).
+
 ### Hors périmètre Lemegeton, relevé pendant l'audit
 
 Les sous-sites `nitro.sterenna.fr/zevent-booster/` et `/rpg/` étaient en 404 :
@@ -224,5 +237,5 @@ dossier absent de sa liste d'exclusions, et ces deux-là n'y figuraient pas.
 
 ### Restent ouverts
 
-Propositions 3 à 6, et les points d'attention sur l'overlay OBS radio, l'oracle
+Propositions 4 à 6, le reliquat `web3d/` de minitel-face, et les points d'attention sur l'overlay OBS radio, l'oracle
 `/leme` et l'état de la radio hors canon (§ 6).
