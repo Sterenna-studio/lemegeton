@@ -1,0 +1,105 @@
+{
+  "version": 1,
+  "updated": "2026-10-14",
+  "description": "Registre des projets où Lemegeton apparaît. « uses » liste ce que chaque projet reprend du canon ; « canon_status » dit s'il s'y aligne déjà. Les dépôts privés n'ont ni adresse interne, ni port, ni chemin local : ce dépôt est public.",
+  "canon_status_values": {
+    "aligned": "utilise déjà les identifiants de canon/emotions.json",
+    "mapped": "vocabulaire propre, rattaché par la table des équivalents",
+    "own": "représentation propre de Lemegeton, pas encore rattachée au canon",
+    "reference": "source du canon ou du personnage"
+  },
+  "projects": [
+    {
+      "repo": "Sterenna-studio/lemegeton-core",
+      "visibility": "public",
+      "role": "Cœur créatif : références 2D, sources 3D, rigs, scènes Blender, canon",
+      "public_url": "https://sterenna.fr/lemegeton/",
+      "uses": ["identité", "visuels", "émotions"],
+      "canon_status": "reference"
+    },
+    {
+      "repo": "Sterenna-studio/nitro-clicker",
+      "visibility": "public",
+      "role": "Onglet et compétences LEMEGETON (ordinateur de bord du Gwen Ha Star), pages OBS des yeux (base, radio, Twitch, variantes), réglages des yeux (lemegeton.html)",
+      "public_url": "https://nitro.sterenna.fr/clicker/",
+      "uses": ["yeux web", "émotions", "lore"],
+      "canon_status": "reference",
+      "note": "Copie de référence de web-eye-animation ; origine des yeux repris par les autres supports."
+    },
+    {
+      "repo": "Sterenna-studio/minitel-musee",
+      "visibility": "public",
+      "role": "Écran 3615 LEMEGETON du Minitel 3D, yeux en mosaïque Vidéotex (portage de LemegetonEyes.h, LibEyes, LibZyraEyes), rendu lisse",
+      "public_url": "https://sterenna.fr/minitel/",
+      "uses": ["yeux Vidéotex", "émotions", "humeurs minitel-face"],
+      "canon_status": "aligned"
+    },
+    {
+      "repo": "Sterenna-studio/gwen-ha-star-static",
+      "visibility": "public",
+      "role": "Chronicles FM : Lemegeton animateur (« le chronicœur de l'onde »), état publié dans data/lemegeton-state.json",
+      "uses": ["état d'avatar (eyes, mouth, mood libre)", "voix"],
+      "canon_status": "own",
+      "note": "Ses champs eyes/mouth (open, focused, closed…) et son mood en texte libre ne suivent pas encore le canon."
+    },
+    {
+      "repo": "Sterenna-studio/chronicles-tcg",
+      "visibility": "public",
+      "role": "Tutoriel Lemegeton (quête tuto_01), « Sceau de Lemegeton » du mode escouade",
+      "public_url": "https://nitro.sterenna.fr/TCG/",
+      "uses": ["lore"],
+      "canon_status": "own"
+    },
+    {
+      "repo": "Sterenna-studio/3615-gateways",
+      "visibility": "public",
+      "role": "Prototype historique de la passerelle Minitel : page AVATAR / LEMEGETON, avatar-state.json (mood neutral)",
+      "uses": ["état d'avatar", "image Vidéotex"],
+      "canon_status": "own",
+      "note": "Le runtime actif a été déplacé dans un dépôt privé (Korigan)."
+    },
+    {
+      "repo": "Korigan",
+      "visibility": "private",
+      "role": "Runtime 3615 actif (avatar Lemegeton), oracle IA, voix de synthèse, transitions de la radio",
+      "uses": ["état d'avatar", "voix", "personnalité"],
+      "canon_status": "own"
+    },
+    {
+      "repo": "minitel-face",
+      "visibility": "private",
+      "role": "Serveur de visage du Minitel physique : six bibliothèques de visages (Classic, Robot, Alien, Eyes, Zyra, ZyraEyes), humeurs, séquences",
+      "uses": ["humeurs minitel-face"],
+      "canon_status": "mapped"
+    },
+    {
+      "repo": "Minitel-Face-Autonomous",
+      "visibility": "private",
+      "role": "Firmware ESP32 autonome : les visages de minitel-face exécutés sur le dongle",
+      "uses": ["humeurs Zyra"],
+      "canon_status": "mapped"
+    },
+    {
+      "repo": "Minitel-Sigil",
+      "visibility": "private",
+      "role": "Firmware ESP32 du Minitel terminal de Sigil : yeux Lemegeton en mosaïque G1 (LemegetonEyes.h)",
+      "uses": ["yeux Vidéotex", "émotions"],
+      "canon_status": "aligned"
+    },
+    {
+      "repo": "sigil",
+      "visibility": "private",
+      "role": "Mesh d'agents domestiques : page /visage (yeux web), émotions envoyées au Minitel",
+      "uses": ["yeux web", "émotions"],
+      "canon_status": "aligned"
+    },
+    {
+      "repo": "sterenna",
+      "visibility": "private",
+      "role": "Site sterenna.fr : lien vers le carnet, /lemegeton/ exclu de son déploiement",
+      "public_url": "https://sterenna.fr/",
+      "uses": ["lien"],
+      "canon_status": "own"
+    }
+  ]
+}
