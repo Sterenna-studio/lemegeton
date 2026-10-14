@@ -1,6 +1,7 @@
 {
   "version": 1,
   "updated": "2026-10-14",
+  "audit": "08_AUDIT/AUDIT_ECOSYSTEME_2026-10-14.md",
   "description": "Registre des projets où Lemegeton apparaît. « uses » liste ce que chaque projet reprend du canon ; « canon_status » dit s'il s'y aligne déjà. Les dépôts privés n'ont ni adresse interne, ni port, ni chemin local : ce dépôt est public.",
   "canon_status_values": {
     "aligned": "utilise déjà les identifiants de canon/emotions.json",
@@ -61,8 +62,8 @@
     {
       "repo": "Korigan",
       "visibility": "private",
-      "role": "Runtime 3615 actif (avatar Lemegeton), oracle IA, voix de synthèse, transitions de la radio",
-      "uses": ["état d'avatar", "voix", "personnalité"],
+      "role": "Runtime 3615 actif (avatar Lemegeton), oracle IA (service externe), voix de synthèse, transitions de la radio, caméra PTZ pilotée comme regard de Lemegéton (PtzEyes), pilotage du serveur minitel-face",
+      "uses": ["état d'avatar", "voix", "personnalité", "regard (caméra PTZ)", "humeurs minitel-face"],
       "canon_status": "own"
     },
     {
