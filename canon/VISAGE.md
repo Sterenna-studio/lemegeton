@@ -17,6 +17,7 @@ sans détail d'infrastructure.
 | **libEyes.ts, libZyraEyes.ts, EyesController.ts** | minitel-musee `src/eyes/` | Minitel 3D | TypeScript | Humeurs minitel-face | Portage de LibEyes, LibZyraEyes et FaceRenderer |
 | **SmoothEyes.ts** | minitel-musee `src/eyes/` | Minitel 3D, rendu lisse | TypeScript | Humeurs minitel-face | Rendu « classique » façon overlay OBS |
 | **mosaic.ts** | minitel-musee `src/videotex/` | Peintre de rangées G1 | TypeScript | — | Format de rangées `[ligne, col, couleur, octets G1]` compatible avec le Minitel réel |
+| **PtzEyes** | Korigan (privé) `app/admin/camera/` | Interface d'admin | React | Regard seulement (pan, tilt, zoom) | Yeux qui reflètent la caméra PTZ pilotée comme regard de Lemegéton (modes contrôle, suivi en direct, surveillance d'écran) |
 | Avatar Vidéotex | 3615-gateways, Korigan (privé) | Page 3615 AVATAR / LEMEGETON | Node.js | `mood` (neutral) | Image texte `lemegeton.txt`, état `avatar-state.json` |
 
 ## Pilotage : ce qui choisit l'émotion
@@ -30,6 +31,7 @@ sans détail d'infrastructure.
 | Mesh Sigil | sigil (privé) | `GET /api/visage`, toutes les 2 s sur le Minitel | Statut de l'agent actif → couleur et émotion |
 | Commande Sigil | sigil (privé) `minitel-face.py` | Action de la liste blanche | 10 émotions, envoyées en minuscules |
 | API HTTP du visage | minitel-face (privé) | `GET /moods`, `POST /mood` | Humeurs de la bibliothèque active |
+| Korigan | Korigan (privé) | Canal vers l'API de minitel-face : humeur, regard, clignement, séquence, bibliothèque | Humeurs minitel-face |
 | Touches Minitel | minitel-musee, firmwares | Chiffres du clavier | Chiffre n → n-ième émotion |
 | État de la radio | gwen-ha-star-static `data/lemegeton-state.json` | Fichier d'état publié | `eyes`/`mouth` (open, focused, closed) et `mood` en texte libre : hors canon |
 | Progression du clicker | nitro-clicker `lemegeton-progression.js` | Suivi du pointeur au survol | Regard seulement |
@@ -51,7 +53,7 @@ sans détail d'infrastructure.
 - **Deux familles coexistent** : les *émotions* (réactions courtes, web-eye-animation)
   et les *humeurs* (postures durables, minitel-face et Zyra). Le canon les relie par
   sa table d'équivalents ; neutral, calm, focused et default restent sans émotion.
-- **Le même moteur existe quatre fois** : deux copies JS, un portage C++, un portage
+- **Le même moteur existe quatre fois** (plus PtzEyes, une cinquième représentation du regard) : deux copies JS, un portage C++, un portage
   TypeScript. Un correctif doit aujourd'hui être reporté à la main dans chacun.
 - **L'état de la radio est hors canon** : yeux et bouche nommés autrement, humeur en
   texte libre.
