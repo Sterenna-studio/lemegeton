@@ -218,8 +218,9 @@ seulement où ils se trouvent, pour qu'un regroupement n'en oublie aucun.
   ne figurent plus dans les fiches et n'entrent pas dans le registre.
 - **Branche locale `feat/web3d-minitel` de minitel-face supprimée** (`f32fc83`,
   « integrate Minitel 3D Web project in web3d/ », 2026-10-06) : ancienne
-  intégration 3D remplacée par minitel-musee. Reste dans minitel-face un dossier
-  `web3d/` qui ne contient que ses `node_modules` (341 Mo, ignoré par Git).
+  intégration 3D remplacée par minitel-musee. Son reliquat, le dossier `web3d/`
+  (341 Mo de `node_modules` ignorés par Git : 266 paquets du registre npm et les
+  caches de Vite, rien de propre au projet), a été supprimé.
 
 ### Hors périmètre Lemegeton, relevé pendant l'audit
 
@@ -237,5 +238,5 @@ dossier absent de sa liste d'exclusions, et ces deux-là n'y figuraient pas.
 
 ### Restent ouverts
 
-Propositions 4 à 6, le reliquat `web3d/` de minitel-face, et les points d'attention sur l'overlay OBS radio, l'oracle
+Propositions 4 à 6, et les points d'attention sur l'overlay OBS radio, l'oracle
 `/leme` et l'état de la radio hors canon (§ 6).
