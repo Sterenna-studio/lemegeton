@@ -32,7 +32,6 @@ flowchart LR
     MSIG[Minitel-Sigil]
     GW[3615-gateways<br/>archivé]
     KOR[Korigan<br/>3615, radio, caméra]
-    MZ[MiniZyraServer]
   end
   SIGIL[sigil<br/>mesh domestique]
 
@@ -94,13 +93,17 @@ exécuté), **archive**.
 
 ### Minitel réel
 
-| | minitel-face | Minitel-Face-Autonomous | Minitel-Sigil | 3615-gateways | Korigan | MiniZyraServer |
-| --- | --- | --- | --- | --- | --- | --- |
-| Visibilité | privé | privé | privé | public | privé | privé |
-| Activité | 20 commits en 90 j | 14 commits en 90 j | 10 commits en 90 j | 0 (dernier le 2026-06-29) | dernier commit distant le 2026-09-27 | 35, dernier le 2026-09-23 |
-| Lemegeton | 7 bibliothèques de visages, API `/mood`, `/gaze`, `/seq` | Visages embarqués (humeurs Zyra) | Yeux Lemegeton en G1, suit la mesh Sigil | Page AVATAR / LEMEGETON | Runtime 3615 (avatar), voix Piper, pack vocal, **caméra PTZ pilotée comme regard de Lemegéton**, pilotage de minitel-face, oracle `/leme` | Aucun (serveur Minitel général) |
-| Pourquoi c'est utile | Seul moteur de visage multi-styles côté Minitel | Minitel sans serveur | Le Minitel est un terminal de Sigil, en service | Documentation et historique du concept | Plan de contrôle des services, radio | Serveur Telnet MINI-STAR, atelier d'images VDT |
-| État | **actif** | **actif** (correctif G1 pas encore flashé) | **actif**, en service (satellite Minitel) | **archive** depuis le 2026-10-14 (le README renvoie vers Korigan) | **actif** (clone local mis à jour le 2026-10-14) | **actif** |
+| | minitel-face | Minitel-Face-Autonomous | Minitel-Sigil | 3615-gateways | Korigan |
+| --- | --- | --- | --- | --- | --- |
+| Visibilité | privé | privé | privé | public | privé |
+| Activité | 20 commits en 90 j | 14 commits en 90 j | 10 commits en 90 j | 0 (dernier le 2026-06-29) | dernier commit distant le 2026-09-27 |
+| Lemegeton | 7 bibliothèques de visages, API `/mood`, `/gaze`, `/seq` | Visages embarqués (humeurs Zyra) | Yeux Lemegeton en G1, suit la mesh Sigil | Page AVATAR / LEMEGETON | Runtime 3615 (avatar), voix Piper, pack vocal, **caméra PTZ pilotée comme regard de Lemegéton**, pilotage de minitel-face, oracle `/leme` |
+| Pourquoi c'est utile | Seul moteur de visage multi-styles côté Minitel | Minitel sans serveur | Le Minitel est un terminal de Sigil, en service | Documentation et historique du concept | Plan de contrôle des services, radio |
+| État | **actif** | **actif** (correctif G1 pas encore flashé) | **actif**, en service (satellite Minitel) | **archive** depuis le 2026-10-14 (le README renvoie vers Korigan) | **actif** (clone local mis à jour le 2026-10-14) |
+
+**Hors périmètre** (décision du 2026-10-15) : MiniZyraServer, serveur Minitel
+général sans Lemegeton. Sa place parmi les serveurs Minitel est un chantier à
+part (voir § 8).
 
 ### Autres
 
@@ -146,6 +149,8 @@ sans lien fonctionnel.
 - 3615-gateways → `Korigan/services/3615-gateways` (Node), porte l'avatar Lemegeton ;
 - MiniZyraServer, consolidation de MINISTARDEV (Python, Telnet MINI-STAR), sans
   Lemegeton ; Korigan et MiniZyraServer ont chacun un audit de comparaison avec MINISTARDEV.
+  Hors périmètre depuis le 2026-10-15 : la question des serveurs Minitel est suivie
+  comme un chantier à part (§ 8).
 
 **Voix** : Piper avec `lemegeton.onnx` et le pack de 10 phrases dans Korigan ;
 `audio/leme` dans gwen-ha-star-static. Le mot d'éveil de Sigil est un autre modèle
@@ -188,7 +193,7 @@ seulement où ils se trouvent, pour qu'un regroupement n'en oublie aucun.
 2. ✅ **Marquer 3615-gateways comme archivé** sur GitHub (lecture seule), puisque son
    README le désigne déjà comme référence historique.
 3. ✅ **Retirer goetia et goetia_v2 du périmètre** : aucun lien fonctionnel.
-4. **Décider la place de MiniZyraServer** : serveur Minitel général, sans
+4. ✅ **Décider la place de MiniZyraServer** : serveur Minitel général, sans
    Lemegeton ; il fait partie de l'écosystème Minitel, pas du personnage.
 5. **Désigner une référence par famille d'yeux** dans le canon : web-eye-animation
    (nitro-clicker) pour les émotions, minitel-face pour les humeurs. Les autres
@@ -222,6 +227,18 @@ seulement où ils se trouvent, pour qu'un regroupement n'en oublie aucun.
   (341 Mo de `node_modules` ignorés par Git : 266 paquets du registre npm et les
   caches de Vite, rien de propre au projet), a été supprimé.
 
+### 2026-10-15 — proposition 4
+
+- **MiniZyraServer sorti du périmètre** (décision de l'utilisateur) : Lemegeton
+  n'y apparaît pas. Il reste une boîte à outils de référence pour l'écosystème
+  Minitel : atelier d'images vers Vidéotex, galerie VDT, salons PC ↔ Minitel,
+  scripts caméra et domotique réglés sur les vrais appareils.
+- **Chantier « Serveurs Minitel » ouvert** dans le registre des chantiers (en
+  pause) : trois serveurs coexistent — MiniZyraServer (Telnet MINI-STAR),
+  Korigan (runtime 3615, Telnet et WebSocket) et Sigil (le Minitel réel en est
+  un satellite). Prochaine étape : vérifier ce qui tourne sur la machine Linux
+  de la maison, puis décider lequel reste en service.
+
 ### Hors périmètre Lemegeton, relevé pendant l'audit
 
 Les sous-sites `nitro.sterenna.fr/zevent-booster/` et `/rpg/` étaient en 404 :
@@ -238,5 +255,5 @@ dossier absent de sa liste d'exclusions, et ces deux-là n'y figuraient pas.
 
 ### Restent ouverts
 
-Propositions 4 à 6, et les points d'attention sur l'overlay OBS radio, l'oracle
+Propositions 5 et 6, et les points d'attention sur l'overlay OBS radio, l'oracle
 `/leme` et l'état de la radio hors canon (§ 6).
