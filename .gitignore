@@ -35,4 +35,13 @@
 !/gallery/assets/
 !/gallery/assets/*.webp
 !/tools/check-gallery.mjs
+!/gallery/eyes/
+!/gallery/eyes/*.html
+!/gallery/eyes/*.css
+!/gallery/eyes/*.js
+!/gallery/eyes/vendor/
+!/gallery/eyes/vendor/*.js
+!/tools/build-eyes.mjs
+!/tools/eyes/
+!/tools/eyes/*.js
 !/.github/workflows/deploy-gallery.yml

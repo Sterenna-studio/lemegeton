@@ -16,5 +16,16 @@ uniquement des images. Pour ajouter une image, produire un dérivé optimisé da
 `gallery/assets/`, ajouter sa notice dans `app.js`, puis vérifier la page avec
 `node tools/check-gallery.mjs`.
 
+## Aperçu des yeux
+
+`eyes/` (https://sterenna.fr/lemegeton/eyes/) montre côte à côte les moteurs
+d'yeux de Lemegeton, pilotés par les émotions de `canon/emotions.json`. Les
+moteurs ne sont pas recopiés : `eyes/eyes.js` est généré par
+`node tools/build-eyes.mjs` depuis le dépôt `minitel-musee` voisin (mosaïques
+Vidéotex et rendu lisse) et le canon, et `eyes/vendor/` reprend tel quel
+web-eye-animation (MIT, CyberAgentAILab) et GSAP depuis `nitro-clicker`.
+Relancer le script après un changement des yeux ou du canon, puis commiter le
+résultat.
+
 La page est en HTML/CSS/JavaScript natifs pour rester légère et éviter de rendre
 les dépendances ou les formats de travail du projet nécessaires au site public.

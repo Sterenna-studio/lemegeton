@@ -42,6 +42,22 @@ for (const forbidden of [".glb", ".gltf", ".blend", ".blend1", ".zip", ".png", "
 for (const local of ["./styles.css", "./app.js", "./assets/concept-greeting.webp"]) {
   assert.ok(html.includes(local), `${local} is not referenced from index.html`);
 }
-console.log(`Gallery OK: ${assets.length} WebP assets, ${(total / 1024 / 1024).toFixed(2)} MiB, HTML/CSS/JS references and mobile/keyboard affordances present.`);
+// Aperçu des yeux (eyes/) : page, iframe du moteur web et bundle généré par tools/build-eyes.mjs.
+const eyes = join(gallery, "eyes");
+const eyesHtml = await readFile(join(eyes, "index.html"), "utf8");
+const eyesCss = await readFile(join(eyes, "eyes.css"), "utf8");
+const bundle = await readFile(join(eyes, "eyes.js"), "utf8");
+assert.ok(eyesHtml.includes("https://sterenna.fr/lemegeton/eyes/"));
+for (const local of ["./eyes.js", "./eyes.css", "./web.html"]) assert.ok(eyesHtml.includes(local), `${local} is not referenced from eyes/index.html`);
+assert.match(bundle, /^\/\* Aperçu des yeux de Lemegeton : généré par tools\/build-eyes\.mjs/);
+assert.match(eyesCss, /prefers-reduced-motion/);
+assert.match(eyesCss, /max-width: 600px/);
+const web = await readFile(join(eyes, "web.html"), "utf8");
+for (const vendor of ["vendor/gsap.min.js", "vendor/web-eye-animation.js"]) {
+  assert.ok(web.includes(vendor), `${vendor} is not referenced from eyes/web.html`);
+  await stat(join(eyes, vendor));
+}
+assert.ok(html.includes("./eyes/"), "eyes/ is not linked from the gallery");
+console.log(`Gallery OK: ${assets.length} WebP assets, ${(total / 1024 / 1024).toFixed(2)} MiB, HTML/CSS/JS references and mobile/keyboard affordances present; eyes preview present.`);
 
 

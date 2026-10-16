@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101110">
+  <meta name="description" content="Les yeux de Lemegéton côte à côte : overlay web, mosaïques Vidéotex du Minitel et rendu lisse, pilotés par les mêmes émotions.">
+  <link rel="canonical" href="https://sterenna.fr/lemegeton/eyes/">
+  <link rel="icon" type="image/webp" href="../assets/icon.webp?v=9be2aa3">
+  <title>Lemegéton — yeux | Sterenna</title>
+  <link rel="stylesheet" href="./eyes.css">
+  <script src="./eyes.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="wordmark" href="https://sterenna.fr/" aria-label="Sterenna, accueil"><span class="wordmark-mark">S</span><span>STERENNA <i>·</i> LEMEGÉTON</span></a>
+    <nav aria-label="Navigation principale">
+      <a href="../">Carnet de création</a>
+      <a class="nav-back" href="https://sterenna.fr/minitel/">Le Minitel interactif <span aria-hidden="true">↗</span></a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="intro" aria-labelledby="eyes-title">
+      <p class="eyebrow"><span class="signal-dot"></span> LEMEGÉTON · YEUX</p>
+      <h1 id="eyes-title">Tous ses <em>regards.</em></h1>
+      <p class="lead">Les moteurs d’yeux de Lemegéton, côte à côte. Une émotion part vers tous à la fois : chacun la joue avec son propre vocabulaire, d’après le canon du personnage.</p>
+    </section>
+
+    <section class="controls" aria-label="Commandes">
+      <div class="emotion-row" id="emotion-buttons" role="group" aria-label="Émotions du canon"></div>
+      <div class="control-row">
+        <button class="emotion emotion-neutral" type="button" id="emotion-neutral">Repos</button>
+        <button class="emotion toggle" type="button" id="eye-tracking" aria-pressed="true">Suivi de la souris</button>
+        <label class="palette">Couleur <select id="eye-palette"></select></label>
+        <p class="status" id="eye-status" aria-live="polite"></p>
+      </div>
+    </section>
+
+    <section class="eye-grid" aria-label="Moteurs d’yeux">
+      <figure class="eye-card">
+        <div class="eye-screen" data-engine="web"><iframe src="./web.html" title="Yeux web de Lemegéton" loading="lazy"></iframe></div>
+        <figcaption>
+          <h2>Overlay web</h2>
+          <p>web-eye-animation (MIT, CyberAgentAILab), vendue dans nitro-clicker.</p>
+          <p class="where">Navigateur · overlays OBS · page visage de Sigil</p>
+          <span class="eye-caption">10 émotions natives</span>
+        </figcaption>
+      </figure>
+      <figure class="eye-card">
+        <div class="eye-screen" data-engine="mosaic" data-style="lemegeton"></div>
+        <figcaption>
+          <h2>Lemegéton · yeux</h2>
+          <p>Firmware Minitel_Sigil, porté dans minitel-musee.</p>
+          <p class="where">Minitel réel et Minitel 3D · mosaïque G1</p>
+          <span class="eye-caption">10 émotions natives</span>
+        </figcaption>
+      </figure>
+      <figure class="eye-card">
+        <div class="eye-screen" data-engine="mosaic" data-style="lemegeton-visage"></div>
+        <figcaption>
+          <h2>Lemegéton · visage</h2>
+          <p>Les mêmes yeux sur une tête ronde qui dérive.</p>
+          <p class="where">Minitel 3D · mosaïque G1</p>
+          <span class="eye-caption">10 émotions natives</span>
+        </figcaption>
+      </figure>
+      <figure class="eye-card">
+        <div class="eye-screen" data-engine="mosaic" data-style="zyra"></div>
+        <figcaption>
+          <h2>Zyra · capsules</h2>
+          <p>LibZyraEyes de minitel-face, porté dans minitel-musee.</p>
+          <p class="where">Minitel réel et Minitel 3D · humeurs</p>
+          <span class="eye-caption">humeurs via le canon</span>
+        </figcaption>
+      </figure>
+      <figure class="eye-card">
+        <div class="eye-screen" data-engine="mosaic" data-style="libeyes"></div>
+        <figcaption>
+          <h2>Blocs · LibEyes</h2>
+          <p>LibEyes de minitel-face, porté dans minitel-musee.</p>
+          <p class="where">Minitel réel et Minitel 3D · humeurs</p>
+          <span class="eye-caption">humeurs via le canon</span>
+        </figcaption>
+      </figure>
+      <figure class="eye-card">
+        <div class="eye-screen" data-engine="smooth"></div>
+        <figcaption>
+          <h2>Rendu lisse</h2>
+          <p>SmoothEyes de minitel-musee, d’après l’overlay OBS.</p>
+          <p class="where">Minitel 3D · humeurs</p>
+          <span class="eye-caption">humeurs via le canon</span>
+        </figcaption>
+      </figure>
+    </section>
+
+    <section class="missing" aria-labelledby="missing-title">
+      <h2 id="missing-title">Pas encore ici</h2>
+      <ul>
+        <li><b>Classic, Robot, Alien</b> : les autres visages de minitel-face, pas encore portés pour le Web.</li>
+        <li><b>Galerie du Minitel</b> : les six visages de minitel-face rejoués par le firmware Minitel_Sigil.</li>
+        <li><b>Regard de la caméra</b> : les yeux qui suivent la caméra PTZ pilotée par Lemegéton.</li>
+      </ul>
+      <p>Le relevé complet des moteurs est tenu dans <a href="https://github.com/Sterenna-studio/lemegeton-core/blob/main/canon/VISAGE.md">le canon du personnage</a>.</p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <a class="footer-brand" href="https://sterenna.fr/">STERENNA</a>
+    <span>web-eye-animation © CyberAgentAILab (MIT) · GSAP © GreenSock</span>
+    <a href="../">Retour au carnet</a>
+  </footer>
+</body>
+</html>

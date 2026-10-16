@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Yeux web de Lemegeton</title>
+  <style>
+    html, body { margin: 0; height: 100%; overflow: hidden; background: #050807; }
+    /* Reprise de nitro-clicker : css/eye-override.css et le dégradé de obs-lemegeton.html. */
+    .eye-container {
+      position: absolute !important; inset: 0 !important; width: 100% !important; height: 100% !important;
+      transform: none !important; background: transparent !important; overflow: hidden !important;
+    }
+    /* Yeux agrandis (10vw x 25vh d'origine) pour les proportions du rendu lisse ; la bibliothèque n'anime que l'échelle. */
+    .eye-container .eye {
+      width: 15vw !important; height: 35vh !important;
+      background: radial-gradient(circle at 50% 42%, var(--c1, #d6fff5) 0%, var(--c2, #00ffcc) 42%, var(--c3, #00b3ff) 92%) !important;
+      box-shadow: 0 0 20px var(--glow, #00ccff), 0 0 44px rgba(0, 180, 255, .45) !important;
+    }
+  </style>
+  <script src="vendor/gsap.min.js"></script>
+</head>
+<body>
+  <div class="eye-container" id="eye"></div>
+  <script src="vendor/web-eye-animation.js"></script>
+  <script>
+    // COLOR_PRESETS de l'overlay OBS (nitro-clicker), rangés sous les palettes de la page.
+    const PRESETS = {
+      cyan: ["#d6fff5", "#00ffcc", "#00b3ff", "#00ccff"],
+      auto: ["#d6fff5", "#00ffcc", "#00b3ff", "#00ccff"],
+      phosphore: ["#efffef", "#00ff44", "#007722", "#00ff44"],
+      ambre: ["#fff8e0", "#ffaa00", "#994400", "#ff8800"],
+      rouge: ["#fff0f0", "#ff3333", "#cc0000", "#ff2200"],
+      nitro: ["#e8f0ff", "#7744ff", "#3300cc", "#6633ff"],
+      blanc: ["#ffffff", "#eef2f0", "#9aa6a2", "#ffffff"],
+    };
+    window.setPalette = (id) => {
+      const [c1, c2, c3, glow] = PRESETS[id] || PRESETS.cyan;
+      const eye = document.getElementById("eye");
+      Object.entries({ c1, c2, c3, glow }).forEach(([name, value]) => eye.style.setProperty(`--${name}`, value));
+    };
+  </script>
+</body>
+</html>
