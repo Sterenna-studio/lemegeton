@@ -9,6 +9,7 @@ identifiants et sont recensés dans le registre.
 | [emotions.json](emotions.json) | Les 10 émotions de référence, leurs équivalents sur chaque support et les déclencheurs connus |
 | [apparitions.json](apparitions.json) | Registre des projets où Lemegeton apparaît, et leur alignement sur le canon |
 | [VISAGE.md](VISAGE.md) | Technologies des yeux, du visage et des émotions, avec leurs constats |
+| [VIDEOTEX.md](VIDEOTEX.md) | Pièges connus et vérifications avant de dessiner une forme en mosaïque G1 |
 | [IDENTITE.md](IDENTITE.md) | Ce qui est dit du personnage, et ce qui reste à arbitrer |
 | [UNIFICATION.md](UNIFICATION.md) | Étapes vers le rassemblement des projets |
 

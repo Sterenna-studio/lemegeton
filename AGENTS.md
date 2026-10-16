@@ -31,6 +31,9 @@ site Minitel/Web vit dans le dépôt `minitel-musee`.
   `canon/apparitions.json`.
 - Le dépôt est public : aucune donnée d'infrastructure privée dans `canon/`.
   Lancer `python tools/check_canon.py` avant de commiter.
+- Toute forme Vidéotex (yeux, visage, icône, image G1) suit `canon/VIDEOTEX.md` :
+  peindre chaque ligne d'un élément, regarder le résultat entier, reporter dans
+  toutes les copies.
 
 ## État du projet
 
