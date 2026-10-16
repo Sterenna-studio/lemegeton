@@ -52,6 +52,9 @@ jobs:
           curl -fsS https://sterenna.fr/lemegeton/ | grep -q 'Lemegéton — carnet de création'
           curl -fsS -o /dev/null https://sterenna.fr/lemegeton/assets/concept-board.webp
           curl -fsS -o /dev/null https://sterenna.fr/lemegeton/assets/icon.webp
+          curl -fsS https://sterenna.fr/lemegeton/eyes/ | grep -q 'Lemegéton — yeux'
+          curl -fsS -o /dev/null https://sterenna.fr/lemegeton/eyes/eyes.js
+          curl -fsS -o /dev/null https://sterenna.fr/lemegeton/eyes/vendor/web-eye-animation.js
 
       - name: Cleanup
         if: always()

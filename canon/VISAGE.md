@@ -4,6 +4,9 @@ Relevé du 2026-10-14 dans les dépôts où Lemegeton apparaît (voir
 [apparitions.json](apparitions.json)). Les dépôts privés sont signalés comme tels,
 sans détail d'infrastructure.
 
+Aperçu côte à côte des moteurs publics, pilotés par les émotions du canon :
+[sterenna.fr/lemegeton/eyes](https://sterenna.fr/lemegeton/eyes/) (`gallery/eyes/`).
+
 ## Moteurs de rendu
 
 | Moteur | Dépôt | Support | Langage | Vocabulaire | Remarques |
