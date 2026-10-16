@@ -18,12 +18,16 @@ function moodFor(emotion) {
   return MOODS.has(first) ? first : "default";
 }
 
-function follow(host, controller) {
+/** Suivi du pointeur, coupé par le bouton « Suivi de la souris ». */
+let tracking = true;
+function onPointer(host, move) {
   host.addEventListener("pointermove", (event) => {
+    if (!tracking) return;
     const box = host.getBoundingClientRect();
-    controller.follow(((event.clientX - box.left) / box.width) * 2 - 1, ((event.clientY - box.top) / box.height) * 2 - 1);
+    move(((event.clientX - box.left) / box.width) * 2 - 1, ((event.clientY - box.top) / box.height) * 2 - 1);
   });
 }
+const follow = (host, controller) => onPointer(host, (x, y) => controller.follow(x, y));
 
 /** Mosaïque Vidéotex : un EyesController dessiné par le rendu du Minitel 3D. */
 function mountMosaic(host, style) {
@@ -89,7 +93,15 @@ function mountSmooth(host) {
 function mountWeb(host) {
   const frame = host.querySelector("iframe");
   const eyes = () => frame.contentWindow?.eyes;
+  // Regard en pixels de l'iframe, borné comme dans l'overlay OBS (safeMove).
+  const look = (x, y) => {
+    const win = frame.contentWindow;
+    if (win) eyes()?.move?.(win.innerWidth * (0.5 + x * 0.16), win.innerHeight * (0.5 + y * 0.14));
+  };
+  onPointer(host, look);
+  host.addEventListener("pointerleave", () => look(0, 0));
   return {
+    recenter: () => look(0, 0),
     palette: (id) => frame.contentWindow?.setPalette?.(id),
     emotion(emotion) {
       eyes()?.emotion?.(emotion.id);
@@ -129,6 +141,14 @@ document.getElementById("emotion-neutral").addEventListener("click", () => {
     if (engine.caption) engine.caption.textContent = "repos";
   }
   status.textContent = "Retour au repos.";
+});
+
+const trackingButton = document.getElementById("eye-tracking");
+trackingButton.addEventListener("click", () => {
+  tracking = !tracking;
+  trackingButton.setAttribute("aria-pressed", String(tracking));
+  if (!tracking) engines.forEach((engine) => engine.recenter?.());
+  status.textContent = tracking ? "Suivi de la souris activé." : "Suivi de la souris coupé.";
 });
 
 const select = document.getElementById("eye-palette");

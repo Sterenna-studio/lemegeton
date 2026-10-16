@@ -44,6 +44,9 @@ h1 em { color: var(--acid); font-weight: 400; }
 .emotion { min-height: 36px; padding: 0 14px; border: 1px solid var(--line); border-radius: 999px; background: var(--panel); color: var(--ink); font-size: 12px; cursor: pointer; transition: border-color .2s, color .2s; }
 .emotion:hover { border-color: var(--acid); color: var(--acid); }
 .emotion-neutral { border-color: rgba(121, 232, 219, .4); color: var(--cyan); }
+.toggle::before { content: ""; display: inline-block; width: 8px; height: 8px; margin-right: 8px; border-radius: 50%; background: var(--acid); box-shadow: 0 0 8px var(--acid); }
+.toggle[aria-pressed="false"] { color: var(--muted); }
+.toggle[aria-pressed="false"]::before { background: transparent; box-shadow: inset 0 0 0 1px var(--muted); }
 .palette { display: inline-flex; gap: 8px; align-items: center; color: var(--muted); font-size: 12px; }
 .palette select { min-height: 36px; padding: 0 10px; border: 1px solid var(--line); border-radius: 8px; background: var(--panel); color: var(--ink); }
 .status { margin: 0 0 0 auto; color: var(--muted); font-size: 12px; }
@@ -52,6 +55,7 @@ h1 em { color: var(--acid); font-weight: 400; }
 .eye-card { margin: 0; border: 1px solid var(--line); border-radius: 14px; overflow: hidden; background: var(--panel); }
 .eye-screen { position: relative; aspect-ratio: 4 / 3; background: #050807; }
 .eye-screen canvas, .eye-screen iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; display: block; }
+.eye-screen iframe { pointer-events: none; }
 .eye-card figcaption { padding: 16px 18px 18px; border-top: 1px solid var(--line); }
 .eye-card h2 { margin-bottom: 6px; font-family: var(--serif); font-size: 22px; font-weight: 500; letter-spacing: -.02em; }
 .eye-card p { margin-bottom: 4px; color: #b7b9b1; font-size: 13px; line-height: 1.5; }
