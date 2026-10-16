@@ -20,9 +20,10 @@ Exemples : 0x7F plein, 0x20 vide, 0x70 tiers bas, 0x23 tiers haut.
 | --- | --- | --- | --- |
 | 2026-10-06 | Barres **cisaillées** : le bout droit arrondi à l'envers du gauche (Zyra) | Deux octets différents (0x70 tiers bas, 0x2F deux tiers hauts) servaient d'embouts gauche et droit d'une même barre | minitel-face, minitel-musee, firmware Minitel-Face-Autonomous |
 | 2026-10-16 | Yeux en **trois barres** au lieu de blocs pleins (LibEyes) | Trois constantes nommaient les lignes 9, 11 et 13 ; l'œil couvre 9 à 13, et les lignes 10 et 12 n'étaient jamais peintes | minitel-face, copie de Korigan, minitel-musee (style renommé « Blocs ») |
+| 2026-10-16 | Visages Classic, Robot et Alien **troués, sans bords, décentrés**, bouches **à l'envers** | Nettoyage des sourcils qui effaçait le front sans le repeindre ; lignes sans bords ; traits décalés d'une colonne ; sourire dessiné barre en haut, coins en bas (∩) ; pupille en couleur NOIR, invisible sur fond noir | minitel-face, copie de Korigan (les firmwares ont leur propre dessin, continu) |
 
-Dans les deux cas, la forme avait été écrite octet par octet sans jamais être
-regardée en entier, et le défaut a été recopié dans chaque portage.
+Chaque fois, la forme avait été écrite octet par octet sans jamais être regardée
+en entier, et le défaut a été recopié dans chaque portage.
 
 ## Avant de créer ou de modifier une forme
 
@@ -44,13 +45,25 @@ regardée en entier, et le défaut a été recopié dans chaque portage.
 6. **Un test par forme** : aucune ligne vide entre le haut et le bas d'un même
    élément, embouts symétriques, codes G1 valides. minitel-face, sa copie de
    Korigan et minitel-musee ont chacun un test « yeux pleins ».
-7. **Reporter dans toutes les copies.** Une forme vit souvent en plusieurs
+7. **Symétrique par construction.** Décrire la moitié gauche et calculer la
+   droite par miroir (`sym`, `mirrorRow`, `mirrorG1` de `src/libs/g1.js` dans
+   minitel-face). Une asymétrie voulue s'écrit en commentaire.
+8. **Une région possède des lignes entières.** Elle efface et repeint toute sa
+   largeur, bords compris : son nettoyage ne peut pas trouer ce qu'une autre
+   région a peint. Les traits fins (sourcils, paupières) se dessinent en trait
+   sombre dans une case de la couleur du visage, pas en trouant le visage.
+9. **Penser à l'espace tampon.** Après chaque segment, minitel-face écrit une
+   case noire (`ABSORB`) : un segment ou un nettoyage qui s'arrête juste avant un
+   bord le gomme.
+10. **Une pupille est un 0x20 dans une rangée colorée.** Une rangée en couleur
+    NOIR ne dessine rien sur fond noir.
+11. **Reporter dans toutes les copies.** Une forme vit souvent en plusieurs
    exemplaires (voir [VISAGE.md](VISAGE.md)) : corriger l'original et chaque
    portage le même jour, puis régénérer l'aperçu (`node tools/build-eyes.mjs`).
 
-## Points relevés, non tranchés
+## Contrôles automatiques
 
-Les contours des visages Classic, Robot et Alien de minitel-face s'interrompent
-par endroits (Robot : bords de la tête absents entre les lignes 10 et 13), alors
-que les versions du firmware Minitel-Sigil les dessinent en continu. Ce n'est pas
-forcément un défaut : à regarder avant de les porter.
+minitel-face et sa copie de Korigan rejouent le vrai flux Vidéotex dans un écran
+simulé : rendu différentiel égal au rendu complet et aucune structure trouée pour
+chaque visage, silhouette continue et symétrie pour Classic, Robot et Alien.
+minitel-musee vérifie que LibEyes n'a aucune ligne vide.
