@@ -58,5 +58,8 @@ Aperçu côte à côte des moteurs publics, pilotés par les émotions du canon 
   sa table d'équivalents ; neutral, calm, focused et default restent sans émotion.
 - **Le même moteur existe quatre fois** (plus PtzEyes, une cinquième représentation du regard) : deux copies JS, un portage C++, un portage
   TypeScript. Un correctif doit aujourd'hui être reporté à la main dans chacun.
+- **Des défauts de forme se recopient d'un portage à l'autre** : barres cisaillées
+  (2026-10-06), lignes manquantes de LibEyes (2026-10-16). Voir
+  [VIDEOTEX.md](VIDEOTEX.md) avant de dessiner ou de porter une forme.
 - **L'état de la radio est hors canon** : yeux et bouche nommés autrement, humeur en
   texte libre.
