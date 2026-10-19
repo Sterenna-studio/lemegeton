@@ -97,7 +97,7 @@ exécuté), **archive**.
 | --- | --- | --- | --- | --- | --- |
 | Visibilité | privé | privé | privé | public | privé |
 | Activité | 20 commits en 90 j | 14 commits en 90 j | 10 commits en 90 j | 0 (dernier le 2026-06-29) | dernier commit distant le 2026-09-27 |
-| Lemegeton | 7 bibliothèques de visages, API `/mood`, `/gaze`, `/seq` | Visages embarqués (humeurs Zyra) | Yeux Lemegeton en G1, suit la mesh Sigil | Page AVATAR / LEMEGETON | Runtime 3615 (avatar), voix Piper, pack vocal, **caméra PTZ pilotée comme regard de Lemegéton**, pilotage de minitel-face, oracle `/leme` |
+| Lemegeton | 6 bibliothèques de visages, API `/mood`, `/gaze`, `/seq` | Visages embarqués (humeurs Zyra) | Yeux Lemegeton en G1, suit la mesh Sigil | Page AVATAR / LEMEGETON | Runtime 3615 (avatar), voix Piper, pack vocal, **caméra PTZ pilotée comme regard de Lemegéton**, pilotage de minitel-face, oracle `/leme` |
 | Pourquoi c'est utile | Seul moteur de visage multi-styles côté Minitel | Minitel sans serveur | Le Minitel est un terminal de Sigil, en service | Documentation et historique du concept | Plan de contrôle des services, radio |
 | État | **actif** | **actif** (correctif G1 pas encore flashé) | **actif**, en service (satellite Minitel) | **archive** depuis le 2026-10-14 (le README renvoie vers Korigan) | **actif** (clone local mis à jour le 2026-10-14) |
 
@@ -195,7 +195,7 @@ seulement où ils se trouvent, pour qu'un regroupement n'en oublie aucun.
 3. ✅ **Retirer goetia et goetia_v2 du périmètre** : aucun lien fonctionnel.
 4. ✅ **Décider la place de MiniZyraServer** : serveur Minitel général, sans
    Lemegeton ; il fait partie de l'écosystème Minitel, pas du personnage.
-5. **Désigner une référence par famille d'yeux** dans le canon : web-eye-animation
+5. ✅ **Désigner une référence par famille d'yeux** dans le canon : web-eye-animation
    (nitro-clicker) pour les émotions, minitel-face pour les humeurs. Les autres
    exemplaires sont alors des portages déclarés.
 6. **Garder ce rapport à jour** à chaque nouvelle apparition de Lemegeton, avec
@@ -239,6 +239,38 @@ seulement où ils se trouvent, pour qu'un regroupement n'en oublie aucun.
   un satellite). Prochaine étape : vérifier ce qui tourne sur la machine Linux
   de la maison, puis décider lequel reste en service.
 
+### 2026-10-16 — corrections Vidéotex
+
+Les formes de minitel-face avaient des défauts recopiés de portage en portage :
+yeux LibEyes en trois barres (lignes 10 et 12 jamais peintes) et visages
+Classic, Robot et Alien troués, sans bords, décentrés, bouches à l'envers.
+Corrigés dans minitel-face, dans la copie vendue de Korigan et dans minitel-musee
+(style LibEyes renommé « Blocs »), avec des tests sur écran simulé. Les pièges et
+les vérifications avant de dessiner une forme sont dans
+[canon/VIDEOTEX.md](../canon/VIDEOTEX.md). L'aperçu des yeux est en ligne :
+[sterenna.fr/lemegeton/eyes](https://sterenna.fr/lemegeton/eyes/).
+
+### 2026-10-19 — proposition 5
+
+Références par famille d'yeux, vérifiées avant d'être écrites (hachages, amont,
+chronologies, humeurs rendues) : voir « Références par famille » dans
+[canon/VISAGE.md](../canon/VISAGE.md), le bloc `references` de
+[emotions.json](../canon/emotions.json) et le champ `lineage` de
+[apparitions.json](../canon/apparitions.json).
+
+- **Émotions : web-eye-animation**, copie gelée de nitro-clicker. Sigil et la
+  galerie en ont des copies identiques ; l'ensemble ne diffère de l'amont que par
+  l'adresse de GSAP. Le firmware Minitel_Sigil le porte, puis minitel-musee porte
+  le firmware (10 chronologies identiques).
+- **Humeurs : minitel-face**, avec deux vocabulaires (LibEyes, Zyra).
+- **Écarts relevés, non corrigés** : le firmware étire les chronologies et en
+  prolonge cinq d'une pose tenue ; Sigil n'emploie que 5 émotions sur 10 ; le
+  portage Zyra de minitel-musee n'a ni `calm`, ni `curious`, ni `focused` ;
+  l'en-tête de `LemegetonEyes.h` annonce un étirement ×1,5 et 21 rangées (le code :
+  ×2,5 et 19) ; aucun repli commun quand une émotion n'a pas d'équivalent.
+- `tools/check_canon.py` vérifie maintenant la lignée : une référence par famille,
+  copies et portages qui citent une source connue.
+
 ### Hors périmètre Lemegeton, relevé pendant l'audit
 
 Les sous-sites `nitro.sterenna.fr/zevent-booster/` et `/rpg/` étaient en 404 :
@@ -255,5 +287,5 @@ dossier absent de sa liste d'exclusions, et ces deux-là n'y figuraient pas.
 
 ### Restent ouverts
 
-Propositions 5 et 6, et les points d'attention sur l'overlay OBS radio, l'oracle
+Proposition 6 (continue), les écarts relevés le 2026-10-19, et les points d'attention sur l'overlay OBS radio, l'oracle
 `/leme` et l'état de la radio hors canon (§ 6).

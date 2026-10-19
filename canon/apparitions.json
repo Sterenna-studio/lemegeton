@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-10-14",
+  "updated": "2026-10-19",
   "audit": "08_AUDIT/AUDIT_ECOSYSTEME_2026-10-14.md",
   "description": "Registre des projets où Lemegeton apparaît. « uses » liste ce que chaque projet reprend du canon ; « canon_status » dit s'il s'y aligne déjà. Les dépôts privés n'ont ni adresse interne, ni port, ni chemin local : ce dépôt est public.",
   "canon_status_values": {
@@ -9,6 +9,11 @@
     "own": "représentation propre de Lemegeton, pas encore rattachée au canon",
     "reference": "source du canon ou du personnage"
   },
+  "lineage_values": {
+    "reference": "source qui fait foi pour sa famille",
+    "copy": "copie identique de la référence",
+    "port": "réécriture dans un autre langage ou un autre rendu, de la source dite dans « from »"
+  },
   "projects": [
     {
       "repo": "Sterenna-studio/lemegeton-core",
@@ -16,7 +21,8 @@
       "role": "Cœur créatif : références 2D, sources 3D, rigs, scènes Blender, canon",
       "public_url": "https://sterenna.fr/lemegeton/",
       "uses": ["identité", "visuels", "émotions"],
-      "canon_status": "reference"
+      "canon_status": "reference",
+      "lineage": {"family": "emotions", "role": "copy", "from": ["Sterenna-studio/nitro-clicker"], "note": "copie identique, dans l'aperçu des yeux (gallery/eyes/vendor)"}
     },
     {
       "repo": "Sterenna-studio/nitro-clicker",
@@ -25,7 +31,8 @@
       "public_url": "https://nitro.sterenna.fr/clicker/",
       "uses": ["yeux web", "émotions", "lore"],
       "canon_status": "reference",
-      "note": "Copie de référence de web-eye-animation ; origine des yeux repris par les autres supports."
+      "note": "Copie de référence de web-eye-animation ; origine des yeux repris par les autres supports.",
+      "lineage": {"family": "emotions", "role": "reference", "from": [], "note": "copie gelée de web-eye-animation ; amont CyberAgentAILab"}
     },
     {
       "repo": "Sterenna-studio/minitel-musee",
@@ -33,7 +40,8 @@
       "role": "Écran 3615 LEMEGETON du Minitel 3D, yeux en mosaïque Vidéotex (portage de LemegetonEyes.h, LibEyes, LibZyraEyes), rendu lisse",
       "public_url": "https://sterenna.fr/minitel/",
       "uses": ["yeux Vidéotex", "émotions", "humeurs minitel-face"],
-      "canon_status": "aligned"
+      "canon_status": "aligned",
+      "lineage": {"family": "emotions", "role": "port", "from": ["Minitel-Sigil", "minitel-face"], "note": "lemegetonEyes.ts suit le firmware ; libEyes.ts, libZyraEyes.ts et SmoothEyes.ts suivent minitel-face"}
     },
     {
       "repo": "Sterenna-studio/gwen-ha-star-static",
@@ -65,35 +73,40 @@
       "visibility": "private",
       "role": "Runtime 3615 actif (avatar Lemegeton), oracle IA (service externe), voix de synthèse, transitions de la radio, caméra PTZ pilotée comme regard de Lemegéton (PtzEyes), pilotage du serveur minitel-face",
       "uses": ["état d'avatar", "voix", "personnalité", "regard (caméra PTZ)", "humeurs minitel-face"],
-      "canon_status": "own"
+      "canon_status": "own",
+      "lineage": {"family": "moods", "role": "copy", "from": ["minitel-face"], "note": "copie vendue de minitel-face (services/minitel-face), corrigée le 2026-10-16"}
     },
     {
       "repo": "minitel-face",
       "visibility": "private",
       "role": "Serveur de visage du Minitel physique : six bibliothèques de visages (Classic, Robot, Alien, Eyes, Zyra, ZyraEyes), humeurs, séquences",
       "uses": ["humeurs minitel-face"],
-      "canon_status": "mapped"
+      "canon_status": "mapped",
+      "lineage": {"family": "moods", "role": "reference", "from": [], "note": "six bibliothèques de visages, deux vocabulaires d'humeur (LibEyes, Zyra)"}
     },
     {
       "repo": "Minitel-Face-Autonomous",
       "visibility": "private",
-      "role": "Firmware ESP32 autonome : les visages de minitel-face exécutés sur le dongle",
+      "role": "Firmware ESP32 autonome : les visages de minitel-face exécutés sur le dongle. Repris par Minitel-Sigil, sauf Ollama direct, OTA et scènes ; reste reflashable",
       "uses": ["humeurs Zyra"],
-      "canon_status": "mapped"
+      "canon_status": "mapped",
+      "lineage": {"family": "moods", "role": "port", "from": ["minitel-face"], "note": "six visages en C++ ; repris par Minitel-Sigil"}
     },
     {
       "repo": "Minitel-Sigil",
       "visibility": "private",
-      "role": "Firmware ESP32 du Minitel terminal de Sigil : yeux Lemegeton en mosaïque G1 (LemegetonEyes.h)",
-      "uses": ["yeux Vidéotex", "émotions"],
-      "canon_status": "aligned"
+      "role": "Firmware ESP32 du Minitel terminal de Sigil : yeux Lemegeton en mosaïque G1 (LemegetonEyes.h) et, depuis le 2026-10-15, les six visages de Face_Autonomous comme styles de sa galerie",
+      "uses": ["yeux Vidéotex", "émotions", "humeurs Zyra"],
+      "canon_status": "aligned",
+      "lineage": {"family": "emotions", "role": "port", "from": ["Sterenna-studio/nitro-clicker", "Minitel-Face-Autonomous"], "note": "LemegetonEyes.h porte web-eye-animation ; Galerie.h porte les six visages de Face_Autonomous"}
     },
     {
       "repo": "sigil",
       "visibility": "private",
       "role": "Mesh d'agents domestiques : page /visage (yeux web), émotions envoyées au Minitel",
       "uses": ["yeux web", "émotions"],
-      "canon_status": "aligned"
+      "canon_status": "aligned",
+      "lineage": {"family": "emotions", "role": "copy", "from": ["Sterenna-studio/nitro-clicker"], "note": "copie identique ; n'emploie que 5 des 10 émotions (excitement, confusion, sleepy, anger, surprise)"}
     },
     {
       "repo": "sterenna",

@@ -42,6 +42,35 @@ def main() -> int:
         if p["visibility"] not in ("public", "private"):
             errors.append(f"apparitions.json : {p['repo']} visibilité inconnue")
 
+    # Lignée : une seule référence par famille ; copies et portages citent une source connue.
+    roles = set(registry.get("lineage_values", {}))
+    families = {"emotions", "moods"}
+    if set(emotions.get("references", {})) - {"verified"} != families:
+        errors.append("emotions.json : « references » doit décrire les familles emotions et moods")
+    references = {family: [] for family in families}
+    for p in registry["projects"]:
+        lin = p.get("lineage")
+        if not lin:
+            continue
+        if lin["family"] not in families or lin["role"] not in roles:
+            errors.append(f"apparitions.json : {p['repo']} lignée inconnue ({lin['family']}/{lin['role']})")
+            continue
+        if lin["role"] == "reference":
+            references[lin["family"]].append(p["repo"])
+            if lin["from"]:
+                errors.append(f"apparitions.json : {p['repo']} est une référence et cite une source")
+        elif not lin["from"]:
+            errors.append(f"apparitions.json : {p['repo']} ({lin['role']}) doit citer sa source")
+        for source in lin["from"]:
+            if source not in repos:
+                errors.append(f"apparitions.json : {p['repo']} cite une source inconnue : {source}")
+    for family, found in references.items():
+        if len(found) != 1:
+            errors.append(f"apparitions.json : la famille {family} doit avoir une référence, trouvé {found}")
+    for vocabulary, moods in emotions.get("references", {}).get("moods", {}).get("vocabularies", {}).items():
+        if len(moods) != len(set(moods)):
+            errors.append(f"emotions.json : humeurs en double dans {vocabulary}")
+
     for path in sorted(CANON.iterdir()):
         for match in FORBIDDEN.finditer(path.read_text(encoding="utf-8")):
             errors.append(f"{path.name} : « {match.group()} » ressemble à une donnée privée")
