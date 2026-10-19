@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-10-14",
+  "updated": "2026-10-19",
   "description": "Émotions de référence de Lemegeton. Les identifiants sont ceux de web-eye-animation (MIT, CyberAgentAILab), déjà partagés par nitro-clicker, Sigil, le firmware Minitel_Sigil et minitel-musee. Les autres supports s'y rattachent par la table « equivalents ».",
   "source_implementation": {
     "library": "web-eye-animation",
@@ -10,6 +10,80 @@
   },
   "default": "joy",
   "idle": "sleepy",
+  "references": {
+    "verified": "2026-10-19",
+    "emotions": {
+      "reference": "web-eye-animation",
+      "upstream": "https://cyberagentailab.github.io/Web-Eye-Animation/web-eye-animation.js",
+      "reference_copy": "Sterenna-studio/nitro-clicker : js/vendor/web-eye-animation.js",
+      "identical_copies": [
+        "sigil : src/sigil_core/webui_static/js/vendor/web-eye-animation.js",
+        "Sterenna-studio/lemegeton-core : gallery/eyes/vendor/web-eye-animation.js"
+      ],
+      "differs_from_upstream": "une ligne : l'adresse de GSAP (copie locale au lieu de cdnjs)",
+      "ports": [
+        "Minitel-Sigil : LemegetonEyes.h (mosaïque G1, temps étiré x2,5 et pose tenue)",
+        "Sterenna-studio/minitel-musee : src/eyes/lemegetonEyes.ts (identique au firmware sur les 10 émotions)"
+      ],
+      "rule": "Les identifiants et leur ordre sont ceux de ce fichier. Un port peut étirer le temps ou tenir la pose pour la liaison Minitel, à condition de le dire."
+    },
+    "moods": {
+      "reference": "minitel-face",
+      "rule": "Une humeur appartient à une bibliothèque : un port dit quelle bibliothèque il suit. Zyra ignore fear et disgust ; LibEyes ignore calm, curious et focused.",
+      "vocabularies": {
+        "eyes": [
+          "default",
+          "happy",
+          "angry",
+          "surprised",
+          "tired",
+          "fear",
+          "disgust",
+          "love"
+        ],
+        "zyra": [
+          "default",
+          "calm",
+          "happy",
+          "curious",
+          "focused",
+          "angry",
+          "surprised",
+          "tired",
+          "love"
+        ],
+        "classic": [
+          "default",
+          "happy",
+          "angry",
+          "tired",
+          "surprised"
+        ],
+        "robot": [
+          "default",
+          "happy",
+          "angry",
+          "tired",
+          "surprised"
+        ],
+        "alien": [
+          "default",
+          "neutral",
+          "happy",
+          "angry",
+          "curious",
+          "surprised",
+          "tired"
+        ]
+      },
+      "ports": [
+        "minitel-face : copie vendue dans Korigan (services/minitel-face)",
+        "Minitel-Face-Autonomous : firmware, six visages en C++",
+        "Minitel-Sigil : Galerie.h, les six visages comme styles 4 à 9 pilotés par les émotions du canon",
+        "Sterenna-studio/minitel-musee : libEyes.ts, libZyraEyes.ts (un seul vocabulaire pour les deux, celui de LibEyes)"
+      ]
+    }
+  },
   "emotions": [
     {
       "id": "joy",

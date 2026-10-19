@@ -39,6 +39,59 @@ Aperçu côte à côte des moteurs publics, pilotés par les émotions du canon 
 | État de la radio | gwen-ha-star-static `data/lemegeton-state.json` | Fichier d'état publié | `eyes`/`mouth` (open, focused, closed) et `mood` en texte libre : hors canon |
 | Progression du clicker | nitro-clicker `lemegeton-progression.js` | Suivi du pointeur au survol | Regard seulement |
 
+## Références par famille
+
+Vérifié le 2026-10-19 (hachages, comparaison à l'amont, chronologies, humeurs rendues).
+Deux familles, chacune avec **une référence** ; tout le reste est une copie ou un
+port, dit comme tel dans [apparitions.json](apparitions.json) (champ `lineage`) et
+[emotions.json](emotions.json) (bloc `references`).
+
+| Famille | Vocabulaire | Référence | Copies identiques | Portages |
+| --- | --- | --- | --- | --- |
+| **Émotions** | les 10 de [emotions.json](emotions.json) | web-eye-animation, copie gelée de nitro-clicker (amont CyberAgentAILab) | Sigil, galerie de lemegeton-core | LemegetonEyes.h (Minitel-Sigil), puis lemegetonEyes.ts (minitel-musee) |
+| **Humeurs** | propre à chaque bibliothèque de minitel-face | minitel-face | copie vendue dans Korigan | Face_Autonomous (C++), Galerie.h (Minitel-Sigil), libEyes.ts, libZyraEyes.ts et SmoothEyes.ts (minitel-musee) |
+
+**Règles.** Les identifiants d'émotion et leur ordre sont ceux du canon. Un
+portage peut étirer le temps ou tenir la pose pour la liaison Minitel, à
+condition de le dire. Une humeur appartient à une bibliothèque : un portage dit
+quelle bibliothèque il suit.
+
+### Ce que la vérification a établi
+
+- **Émotions : trois copies identiques.** nitro-clicker, Sigil et la galerie ont
+  le même `web-eye-animation.js` (même hachage, fins de ligne mises à part), et
+  le même GSAP. Il diffère de l'amont par **une seule ligne** : l'adresse de GSAP.
+- **Sigil n'emploie que 5 des 10 émotions** : excitement (agent occupé), confusion
+  (dégradé), sleepy (déconnecté ou agent inactif), surprise puis, au bout de 8 s, anger (erreur). Les
+  identifiants sont ceux du canon : « aligné » vaut pour les noms.
+- **Les chronologies du firmware ne sont pas celles du web.** Quatre sont
+  identiques (joy, sadness, anger, fear) ; cinq ont une étape de pose tenue en
+  plus (surprise +500 ms, disgust +500, confusion +200, love +500, sleepy +500) ;
+  excitement est 100 ms plus court. Le firmware étire en outre le temps de ×2,5 et
+  tient la pose 1,2 s.
+- **Le TypeScript de minitel-musee suit le firmware, pas le web** : les 10
+  chronologies sont identiques à celles de `LemegetonEyes.h`.
+- **Humeurs : deux vocabulaires.** LibEyes a 8 humeurs, Zyra et ZyraEyes 9 ;
+  Classic, Robot et Alien 5, 5 et 7. Testé sur l'original : Zyra rend `fear` et
+  `disgust` comme `default`, LibEyes rend `calm`, `curious` et `focused` comme
+  `default`.
+- **Le portage Zyra de minitel-musee** réutilise le vocabulaire de LibEyes : `fear`
+  et `disgust` y sont rapprochés des formes surpris et fatigué (écrit dans son
+  en-tête), mais `calm`, `curious` et `focused` n'y existent pas.
+- **Les replis diffèrent selon le support** quand le canon n'a pas d'équivalent :
+  Minitel-Sigil joue sadness en fatigué, fear en surpris et disgust en concentré ;
+  la page d'aperçu lit les équivalents du canon et retombe sur neutre quand
+  l'humeur n'existe pas dans le moteur (confusion, dont l'équivalent « curious »
+  est absent de LibEyes).
+
+### Écarts relevés, non corrigés
+
+- Minitel-Sigil, en-tête de `LemegetonEyes.h` : annonce « durées ×1,5 » (le code
+  utilise 2,5) et « 40 × 21 cellules, rangées 2 à 22 » (le code : 19 rangées, 2 à 20).
+- minitel-musee : `libZyraEyes.ts` n'a pas `calm`, `curious` ni `focused`, que
+  LibZyra rend.
+- Aucune table de repli commune : chaque support choisit sa humeur la plus proche.
+
 ## Voix et personnalité
 
 | Élément | Dépôt | Techno |
