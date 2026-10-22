@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-10-19",
+  "updated": "2026-10-22",
   "description": "Émotions de référence de Lemegeton. Les identifiants sont ceux de web-eye-animation (MIT, CyberAgentAILab), déjà partagés par nitro-clicker, Sigil, le firmware Minitel_Sigil et minitel-musee. Les autres supports s'y rattachent par la table « equivalents ».",
   "source_implementation": {
     "library": "web-eye-animation",
@@ -82,6 +82,121 @@
         "Minitel-Sigil : Galerie.h, les six visages comme styles 4 à 9 pilotés par les émotions du canon",
         "Sterenna-studio/minitel-musee : libEyes.ts, libZyraEyes.ts (un seul vocabulaire pour les deux, celui de LibEyes)"
       ]
+    }
+  },
+  "fallbacks": {
+    "decided": "2026-10-22",
+    "rule": "Quand une émotion du canon n'existe pas dans le vocabulaire d'un moteur, il joue l'humeur la plus proche qu'il possède, celle de ce tableau. « approximate » liste les émotions sans équivalent exact. Calm, focused et neutral ne sont pas des émotions : l'état de la mesh les pilote.",
+    "engines": {
+      "eyes": {
+        "moods": {
+          "joy": "happy",
+          "sadness": "tired",
+          "surprise": "surprised",
+          "anger": "angry",
+          "fear": "fear",
+          "disgust": "disgust",
+          "confusion": "surprised",
+          "love": "love",
+          "sleepy": "tired",
+          "excitement": "happy"
+        },
+        "approximate": [
+          "sadness",
+          "confusion",
+          "sleepy",
+          "excitement"
+        ]
+      },
+      "zyra": {
+        "moods": {
+          "joy": "happy",
+          "sadness": "tired",
+          "surprise": "surprised",
+          "anger": "angry",
+          "fear": "surprised",
+          "disgust": "tired",
+          "confusion": "curious",
+          "love": "love",
+          "sleepy": "tired",
+          "excitement": "happy"
+        },
+        "approximate": [
+          "sadness",
+          "fear",
+          "disgust",
+          "sleepy",
+          "excitement"
+        ]
+      },
+      "classic": {
+        "moods": {
+          "joy": "happy",
+          "sadness": "tired",
+          "surprise": "surprised",
+          "anger": "angry",
+          "fear": "surprised",
+          "disgust": "tired",
+          "confusion": "surprised",
+          "love": "happy",
+          "sleepy": "tired",
+          "excitement": "happy"
+        },
+        "approximate": [
+          "sadness",
+          "fear",
+          "disgust",
+          "confusion",
+          "love",
+          "sleepy",
+          "excitement"
+        ]
+      },
+      "robot": {
+        "moods": {
+          "joy": "happy",
+          "sadness": "tired",
+          "surprise": "surprised",
+          "anger": "angry",
+          "fear": "surprised",
+          "disgust": "tired",
+          "confusion": "surprised",
+          "love": "happy",
+          "sleepy": "tired",
+          "excitement": "happy"
+        },
+        "approximate": [
+          "sadness",
+          "fear",
+          "disgust",
+          "confusion",
+          "love",
+          "sleepy",
+          "excitement"
+        ]
+      },
+      "alien": {
+        "moods": {
+          "joy": "happy",
+          "sadness": "tired",
+          "surprise": "surprised",
+          "anger": "angry",
+          "fear": "surprised",
+          "disgust": "tired",
+          "confusion": "curious",
+          "love": "happy",
+          "sleepy": "tired",
+          "excitement": "happy"
+        },
+        "approximate": [
+          "sadness",
+          "fear",
+          "disgust",
+          "love",
+          "sleepy",
+          "excitement"
+        ]
+      }
     }
   },
   "emotions": [

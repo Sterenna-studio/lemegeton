@@ -71,6 +71,21 @@ def main() -> int:
         if len(moods) != len(set(moods)):
             errors.append(f"emotions.json : humeurs en double dans {vocabulary}")
 
+    # Table de repli : chaque moteur couvre les émotions du canon avec des humeurs qu'il possède.
+    vocabularies = emotions.get("references", {}).get("moods", {}).get("vocabularies", {})
+    fallbacks = emotions.get("fallbacks", {}).get("engines", {})
+    if set(fallbacks) != set(vocabularies):
+        errors.append(f"emotions.json : fallbacks couvre {sorted(fallbacks)}, vocabulaires {sorted(vocabularies)}")
+    for name, spec in fallbacks.items():
+        if set(spec["moods"]) != set(ids):
+            errors.append(f"emotions.json : fallbacks/{name} ne couvre pas exactement les émotions du canon")
+        for emotion, mood in spec["moods"].items():
+            if mood not in vocabularies.get(name, []):
+                errors.append(f"emotions.json : fallbacks/{name} : {emotion} → {mood} absent du vocabulaire {name}")
+        for emotion in spec["approximate"]:
+            if emotion not in ids:
+                errors.append(f"emotions.json : fallbacks/{name} : « approximate » cite {emotion} inconnue")
+
     for path in sorted(CANON.iterdir()):
         for match in FORBIDDEN.finditer(path.read_text(encoding="utf-8")):
             errors.append(f"{path.name} : « {match.group()} » ressemble à une donnée privée")

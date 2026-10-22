@@ -78,11 +78,42 @@ quelle bibliothèque il suit.
 - **Le portage Zyra de minitel-musee** réutilise le vocabulaire de LibEyes : `fear`
   et `disgust` y sont rapprochés des formes surpris et fatigué (écrit dans son
   en-tête), mais `calm`, `curious` et `focused` n'y existent pas.
-- **Les replis diffèrent selon le support** quand le canon n'a pas d'équivalent :
+- **Avant la table de repli ci-dessus, les replis différaient selon le support** quand le canon n'a pas d'équivalent :
   Minitel-Sigil joue sadness en fatigué, fear en surpris et disgust en concentré ;
   la page d'aperçu lit les équivalents du canon et retombe sur neutre quand
   l'humeur n'existe pas dans le moteur (confusion, dont l'équivalent « curious »
   est absent de LibEyes).
+
+### Repli quand une émotion n'a pas d'équivalent
+
+Décidé le 2026-10-22, écrit dans le bloc `fallbacks` de [emotions.json](emotions.json) :
+un moteur joue l'humeur la plus proche qu'il possède. Une étoile marque un repli
+(pas d'équivalent exact). Robot est identique à Classic. Calm, focused et neutral
+ne sont pas des émotions : l'état de la mesh les pilote.
+
+| Émotion | LibEyes | Zyra | Classic, Robot | Alien |
+| --- | --- | --- | --- | --- |
+| joy | happy | happy | happy | happy |
+| sadness | tired* | tired* | tired* | tired* |
+| surprise | surprised | surprised | surprised | surprised |
+| anger | angry | angry | angry | angry |
+| fear | fear | surprised* | surprised* | surprised* |
+| disgust | disgust | tired* | tired* | tired* |
+| confusion | surprised* | curious | surprised* | curious |
+| love | love | love | happy* | happy* |
+| sleepy | tired* | tired* | tired* | tired* |
+| excitement | happy* | happy* | happy* | happy* |
+
+Deux choix à retenir : le **dégoût sur Zyra est « fatigué »**, parce que
+« concentré » y donne exactement les yeux de la colère ; la **confusion est
+« surpris »** là où l'humeur « curieux » n'existe pas.
+
+**Écarts avec les supports actuels** (non corrigés) :
+
+- Minitel-Sigil joue le dégoût en « concentré » (`GAL_MOOD_OF_EMOTION`).
+- La page d'aperçu des yeux joue la tristesse en neutre (elle n'a pas de repli) et
+  la confusion en neutre sur LibEyes.
+- Le portage Zyra de minitel-musee n'a pas « curieux » : la confusion y reste neutre.
 
 ### Écarts relevés, non corrigés
 
@@ -90,7 +121,6 @@ quelle bibliothèque il suit.
   utilise 2,5) et « 40 × 21 cellules, rangées 2 à 22 » (le code : 19 rangées, 2 à 20).
 - minitel-musee : `libZyraEyes.ts` n'a pas `calm`, `curious` ni `focused`, que
   LibZyra rend.
-- Aucune table de repli commune : chaque support choisit sa humeur la plus proche.
 
 ## Voix et personnalité
 
