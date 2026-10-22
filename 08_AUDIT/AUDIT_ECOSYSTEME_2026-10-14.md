@@ -271,6 +271,15 @@ chronologies, humeurs rendues) : voir « Références par famille » dans
 - `tools/check_canon.py` vérifie maintenant la lignée : une référence par famille,
   copies et portages qui citent une source connue.
 
+### 2026-10-22 — table de repli commune
+
+Quand une émotion n'a pas d'équivalent, chaque moteur joue l'humeur la plus
+proche : tableau dans [canon/VISAGE.md](../canon/VISAGE.md), bloc `fallbacks` de
+[emotions.json](../canon/emotions.json), vérifié par `tools/check_canon.py`.
+Choix de l'utilisateur : confusion en « surpris » là où « curieux » n'existe
+pas ; dégoût en « fatigué » sur Zyra. Trois écarts avec les supports actuels sont
+notés dans VISAGE.md, sans correction.
+
 ### Hors périmètre Lemegeton, relevé pendant l'audit
 
 Les sous-sites `nitro.sterenna.fr/zevent-booster/` et `/rpg/` étaient en 404 :
@@ -287,5 +296,5 @@ dossier absent de sa liste d'exclusions, et ces deux-là n'y figuraient pas.
 
 ### Restent ouverts
 
-Proposition 6 (continue), les écarts relevés le 2026-10-19, et les points d'attention sur l'overlay OBS radio, l'oracle
+Proposition 6 (continue), les écarts relevés le 2026-10-19 et 2026-10-22, et les points d'attention sur l'overlay OBS radio, l'oracle
 `/leme` et l'état de la radio hors canon (§ 6).
