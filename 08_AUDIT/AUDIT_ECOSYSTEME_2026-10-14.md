@@ -306,9 +306,21 @@ route, quatre défauts sont apparus (deux dans nitro-clicker, un dans Korigan) :
   `https://nitro.sterenna.fr` et refusait `OPTIONS`, contrairement aux trois routes
   publiques voisines.
 
-Corrigés dans nitro-clicker#16 et Korigan#39 (à fusionner). Testé avec une fausse radio
-au format de Korigan ; pas vérifié en direct, Korigan étant injoignable (530) ce
-jour-là. Reste à confirmer une fois les deux fusionnés et Korigan de nouveau en ligne.
+Corrigés dans nitro-clicker#16 et Korigan#39, fusionnés le 2026-10-23. Testé avec une
+fausse radio au format de Korigan ; pas vérifié en direct, Korigan étant injoignable
+(530) ce jour-là. Reste à confirmer sur l'overlay réel quand Korigan est en ligne.
+
+### 2026-10-23 — un quatrième Lemegeton
+
+En cherchant l'oracle `/leme`, l'inventaire (limité jusque-là à `repos/`) a élargi sa
+recherche au dossier `lab/` : l'atelier local `agentAI-config-workspace` configure
+« leme », agent de développement privé (« Lemegaton Engine Matrix Entity », avril 2026,
+OpenClaw et Ollama), avec identité, âme et mémoire. C'est une quatrième figure du
+personnage, sans visage ni émotion : ajoutée au registre
+([apparitions.json](../canon/apparitions.json)) et aux points à arbitrer de
+[IDENTITE.md](../canon/IDENTITE.md). Le dossier n'a pas de dépôt distant et contient des
+informations personnelles : seul le descriptif du personnage est repris ici. Le service
+de la page `/leme` reste introuvable ; son lien avec cet agent est une piste non vérifiée.
 
 ### Hors périmètre Lemegeton, relevé pendant l'audit
 
@@ -327,4 +339,4 @@ dossier absent de sa liste d'exclusions, et ces deux-là n'y figuraient pas.
 ### Restent ouverts
 
 Proposition 6 (continue), les écarts relevés le 2026-10-19 et 2026-10-22, et les points d'attention sur l'overlay OBS radio
-(corrections en attente de fusion), l'oracle `/leme` et l'état de la radio hors canon (§ 6).
+(à confirmer en direct), l'oracle `/leme` et l'état de la radio hors canon (§ 6).

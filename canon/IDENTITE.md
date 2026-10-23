@@ -23,6 +23,7 @@ arbitrées, pas résolues d'office.
 | chronicles-tcg | Guide du tutoriel, « Sceau de Lemegeton » qui désigne qui ouvre la Chronique | Solennel, rituel |
 | Minitel (musée, 3615) | Service 3615 LEMEGETON, avatar du terminal | Vidéotex, rétro |
 | Oracle (privé) | Oracle IA | À préciser |
+| Agent de développement (privé, atelier local OpenClaw et Ollama) | « Lemegaton Engine Matrix Entity », dit « leme » : familier de développement lié à l'atelier, agent principal pour le code, le débogage, les journaux et les scripts | Direct, technique, calme, sans effet de manche ; répond en français |
 
 ## À arbitrer
 
@@ -33,3 +34,8 @@ arbitrées, pas résolues d'office.
 - Le nom vient de la *Petite Clé de Salomon* (Lemegeton), comme Goetia et Sigil
   (ex-Clavicula Salomonis) : faut-il assumer ce lien dans le lore ?
 - La voix de synthèse sert-elle de référence pour tous les supports ?
+- **Un quatrième Lemegeton** : l'agent de développement « leme » (avril 2026) est-il
+  le même personnage que le robot, la radio et le vaisseau, ou un homonyme ? Il a son
+  identité, son âme et sa mémoire propres, mais aucun visage ni aucune émotion.
+  Piste non vérifiée : la page `/leme` (« Agent IA · Oracle ») de Korigan, dont
+  l'adresse du service est vide dans le dépôt, pourrait lui correspondre.
