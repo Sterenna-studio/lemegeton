@@ -58,6 +58,14 @@ for (const vendor of ["vendor/gsap.min.js", "vendor/web-eye-animation.js"]) {
   await stat(join(eyes, vendor));
 }
 assert.ok(html.includes("./eyes/"), "eyes/ is not linked from the gallery");
+// Le fichier assemblé embarque la table de repli du canon : elle doit être celle du canon,
+// sinon eyes.js a été généré avant un changement de canon (relancer tools/build-eyes.mjs).
+const canon = JSON.parse(await readFile(join(root, "canon", "emotions.json"), "utf8"));
+assert.ok(bundle.includes(`decided:"${canon.fallbacks.decided}"`), "eyes.js embarque une ancienne table de repli : relancer node tools/build-eyes.mjs");
+for (const [name, spec] of Object.entries(canon.fallbacks.engines)) {
+  const inlined = `moods:{${Object.entries(spec.moods).map(([emotion, mood]) => `${emotion}:"${mood}"`).join(",")}}`;
+  assert.ok(bundle.includes(inlined), `eyes.js : la table de repli ${name} diffère du canon : relancer node tools/build-eyes.mjs`);
+}
 console.log(`Gallery OK: ${assets.length} WebP assets, ${(total / 1024 / 1024).toFixed(2)} MiB, HTML/CSS/JS references and mobile/keyboard affordances present; eyes preview present.`);
 
 

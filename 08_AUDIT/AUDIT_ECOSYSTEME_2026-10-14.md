@@ -278,7 +278,8 @@ proche : tableau dans [canon/VISAGE.md](../canon/VISAGE.md), bloc `fallbacks` de
 [emotions.json](../canon/emotions.json), vérifié par `tools/check_canon.py`.
 Choix de l'utilisateur : confusion en « surpris » là où « curieux » n'existe
 pas ; dégoût en « fatigué » sur Zyra. Trois écarts avec les supports actuels sont
-notés dans VISAGE.md, sans correction.
+notés dans VISAGE.md ; le premier est corrigé : la page d'aperçu des yeux suit la
+table depuis le 2026-10-23 (restent le firmware et le portage Zyra de minitel-musee).
 
 ### Hors périmètre Lemegeton, relevé pendant l'audit
 
