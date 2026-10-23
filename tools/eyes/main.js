@@ -8,9 +8,14 @@ import { EMOTIONS } from "@musee/eyes/lemegetonEyes";
 import { defaultEffects, renderTerminal } from "@musee/videotex/renderer";
 import canon from "../../canon/emotions.json";
 
-// Humeurs que les moteurs de minitel-musee savent jouer (celles de LibEyes). Le
-// portage Zyra n'a pas calm, curious ni focused : voir canon/VISAGE.md.
-const PLAYABLE = new Set(["default", "happy", "angry", "surprised", "tired", "fear", "disgust", "love"]);
+// Humeurs que les moteurs de minitel-musee savent jouer, par clé de moteur : celles de
+// LibEyes, et celles de Zyra (portage complet depuis minitel-musee#37, avec peur et
+// dégoût rapprochés des formes surpris et fatigué).
+const LIBEYES_MOODS = ["default", "happy", "angry", "surprised", "tired", "fear", "disgust", "love"];
+const PLAYABLE = {
+  eyes: new Set(LIBEYES_MOODS),
+  zyra: new Set([...LIBEYES_MOODS, "calm", "curious", "focused"]),
+};
 const reducedMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
 const effects = { ...defaultEffects };
 
@@ -24,7 +29,7 @@ const effects = { ...defaultEffects };
 function playMood(controller, engine, emotion) {
   const spec = canon.fallbacks.engines[engine];
   const mood = spec.moods[emotion.id];
-  if (!PLAYABLE.has(mood)) {
+  if (!PLAYABLE[engine].has(mood)) {
     controller.setMood("default");
     return `${emotion.id} → ${mood}, non porté : neutre`;
   }

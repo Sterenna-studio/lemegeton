@@ -177,7 +177,8 @@ seulement où ils se trouvent, pour qu'un regroupement n'en oublie aucun.
   gwen-ha-star-static (4). **minitel-face a divergé** : 1 commit local non poussé
   (« Add local Minitel command reference ») et 2 commits distants (PR #7).
 - **Overlay OBS radio** : il lit l'état sur korigan.sterenna.fr, qui répond 401 sans
-  session. À vérifier en conditions réelles dans OBS.
+  session. Diagnostiqué le 2026-10-23 : voir le suivi de cette date (corrections en
+  attente de fusion).
 - **Oracle `/leme`** : la page de Korigan intègre un service externe dont l'adresse
   est une variable d'environnement ; aucun dépôt local ne contient ce service.
 - **État de la radio hors canon** : `lemegeton-state.json` nomme yeux et bouche à
@@ -281,6 +282,34 @@ pas ; dégoût en « fatigué » sur Zyra. Trois écarts avec les supports actue
 notés dans VISAGE.md ; le premier est corrigé : la page d'aperçu des yeux suit la
 table depuis le 2026-10-23 (restent le firmware et le portage Zyra de minitel-musee).
 
+### 2026-10-23 — portage Zyra de minitel-musee
+
+Le portage Zyra reprend `calm`, `curious` et `focused` (minitel-musee#37) : ses neuf
+humeurs sont identiques à celles de LibZyra, comparées rangée par rangée. La page
+d'aperçu des yeux joue « curieux » sur la carte Zyra au lieu d'écrire « non porté ».
+Seul écart restant avec la table de repli : le firmware Minitel_Sigil, qui joue le
+dégoût en « concentré ».
+
+### 2026-10-23 — overlay OBS radio diagnostiqué
+
+L'overlay `obs-lemegeton-radio.html` de nitro-clicker ne pouvait pas réagir à la radio.
+Le « 401 » de l'audit venait d'une adresse qui n'existe pas ; en cherchant la bonne
+route, quatre défauts sont apparus (deux dans nitro-clicker, un dans Korigan) :
+
+- **adresse** : `/api/radio/state` au lieu de `/api/korigan/radio/state`, la route
+  publique de Korigan ;
+- **format** : l'overlay lisait `data.playback.artist`, la radio renvoie
+  `{ ok, state: { playback: { currentTrack } } }` ;
+- **sondage** : un `return` avant le `setTimeout` l'arrêtait pour toujours au premier
+  échec ;
+- **CORS** (Korigan) : la route radio n'envoyait aucun en-tête pour
+  `https://nitro.sterenna.fr` et refusait `OPTIONS`, contrairement aux trois routes
+  publiques voisines.
+
+Corrigés dans nitro-clicker#16 et Korigan#39 (à fusionner). Testé avec une fausse radio
+au format de Korigan ; pas vérifié en direct, Korigan étant injoignable (530) ce
+jour-là. Reste à confirmer une fois les deux fusionnés et Korigan de nouveau en ligne.
+
 ### Hors périmètre Lemegeton, relevé pendant l'audit
 
 Les sous-sites `nitro.sterenna.fr/zevent-booster/` et `/rpg/` étaient en 404 :
@@ -297,5 +326,5 @@ dossier absent de sa liste d'exclusions, et ces deux-là n'y figuraient pas.
 
 ### Restent ouverts
 
-Proposition 6 (continue), les écarts relevés le 2026-10-19 et 2026-10-22, et les points d'attention sur l'overlay OBS radio, l'oracle
-`/leme` et l'état de la radio hors canon (§ 6).
+Proposition 6 (continue), les écarts relevés le 2026-10-19 et 2026-10-22, et les points d'attention sur l'overlay OBS radio
+(corrections en attente de fusion), l'oracle `/leme` et l'état de la radio hors canon (§ 6).

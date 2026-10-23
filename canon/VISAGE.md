@@ -75,9 +75,11 @@ quelle bibliothèque il suit.
   Classic, Robot et Alien 5, 5 et 7. Testé sur l'original : Zyra rend `fear` et
   `disgust` comme `default`, LibEyes rend `calm`, `curious` et `focused` comme
   `default`.
-- **Le portage Zyra de minitel-musee** réutilise le vocabulaire de LibEyes : `fear`
-  et `disgust` y sont rapprochés des formes surpris et fatigué (écrit dans son
-  en-tête), mais `calm`, `curious` et `focused` n'y existent pas.
+- **Le portage Zyra de minitel-musee a les neuf humeurs de LibZyra**, identiques à
+  l'original rangée par rangée (vérifié le 2026-10-23 sur neuf humeurs, trois
+  regards, ouvert, fermé et mi-clos) ; `fear` et `disgust`, propres à LibEyes, y sont
+  en plus rapprochés des formes surpris et fatigué. Avant le 2026-10-23 il n'avait
+  ni `calm`, ni `curious`, ni `focused`.
 - **Avant la table de repli ci-dessus, les replis différaient selon le support** quand le canon n'a pas d'équivalent :
   Minitel-Sigil joue sadness en fatigué, fear en surpris et disgust en concentré ;
   la page d'aperçu lit les équivalents du canon et retombe sur neutre quand
@@ -110,9 +112,8 @@ Deux choix à retenir : le **dégoût sur Zyra est « fatigué »**, parce que
 
 **Écarts avec les supports actuels** (non corrigés) :
 
-- Minitel-Sigil joue le dégoût en « concentré » (`GAL_MOOD_OF_EMOTION`).
-- Le portage Zyra de minitel-musee n'a pas « curieux » : la confusion y reste
-  neutre, et la page d'aperçu l'écrit (« non porté : neutre »).
+- Minitel-Sigil joue le dégoût en « concentré » (`GAL_MOOD_OF_EMOTION`) : c'est le
+  seul écart restant avec la table.
 
 La page d'aperçu des yeux suit la table depuis le 2026-10-23 : chaque carte lit son
 moteur dans `fallbacks` et affiche l'humeur jouée, avec « repli » quand il n'y a pas
@@ -123,8 +124,6 @@ embarque la même table que le canon.
 
 - Minitel-Sigil, en-tête de `LemegetonEyes.h` : annonce « durées ×1,5 » (le code
   utilise 2,5) et « 40 × 21 cellules, rangées 2 à 22 » (le code : 19 rangées, 2 à 20).
-- minitel-musee : `libZyraEyes.ts` n'a pas `calm`, `curious` ni `focused`, que
-  LibZyra rend.
 
 ## Voix et personnalité
 
