@@ -1,21 +1,35 @@
 // Aperçu des yeux de Lemegeton (sterenna.fr/lemegeton/eyes/).
 // Les moteurs viennent tels quels de minitel-musee (alias @musee, voir
-// tools/build-eyes.mjs) ; le moteur web vit dans l'iframe web.html. Les
-// correspondances émotion → humeur sont lues dans canon/emotions.json.
+// tools/build-eyes.mjs) ; le moteur web vit dans l'iframe web.html. Les humeurs
+// jouées viennent de la table de repli de canon/emotions.json (bloc fallbacks).
 import { EyesController, EYE_PALETTES } from "@musee/eyes/EyesController";
 import { SmoothEyes } from "@musee/eyes/SmoothEyes";
 import { EMOTIONS } from "@musee/eyes/lemegetonEyes";
 import { defaultEffects, renderTerminal } from "@musee/videotex/renderer";
 import canon from "../../canon/emotions.json";
 
-const MOODS = new Set(["default", "happy", "angry", "surprised", "tired", "fear", "disgust", "love"]);
+// Humeurs que les moteurs de minitel-musee savent jouer (celles de LibEyes). Le
+// portage Zyra n'a pas calm, curious ni focused : voir canon/VISAGE.md.
+const PLAYABLE = new Set(["default", "happy", "angry", "surprised", "tired", "fear", "disgust", "love"]);
 const reducedMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
 const effects = { ...defaultEffects };
 
-/** Humeur minitel-face d'une émotion : premier mot de son équivalent, s'il existe. */
-function moodFor(emotion) {
-  const first = String(emotion.equivalents?.["minitel-face"] ?? "").split(/\s/)[0];
-  return MOODS.has(first) ? first : "default";
+/**
+ * Joue une émotion du canon sur un moteur à humeurs, d'après la table de repli
+ * `fallbacks` de emotions.json (clé de moteur : "eyes" ou "zyra"). Renvoie
+ * l'étiquette affichée sous la carte : l'humeur jouée, « repli » quand le moteur
+ * n'a pas d'équivalent exact, et « non porté » quand l'humeur du canon n'existe
+ * pas dans le portage (le moteur reste alors au repos).
+ */
+function playMood(controller, engine, emotion) {
+  const spec = canon.fallbacks.engines[engine];
+  const mood = spec.moods[emotion.id];
+  if (!PLAYABLE.has(mood)) {
+    controller.setMood("default");
+    return `${emotion.id} → ${mood}, non porté : neutre`;
+  }
+  controller.setMood(mood);
+  return `${emotion.id} → ${mood}${spec.approximate.includes(emotion.id) ? " (repli)" : ""}`;
 }
 
 /** Suivi du pointeur, coupé par le bouton « Suivi de la souris ». */
@@ -60,9 +74,7 @@ function mountMosaic(host, style) {
         controller.key(String(EMOTIONS.indexOf(emotion.id)));
         return `${emotion.id} (natif)`;
       }
-      const mood = moodFor(emotion);
-      controller.setMood(mood);
-      return mood === "default" ? `${emotion.id} → aucun équivalent` : `${emotion.id} → ${mood}`;
+      return playMood(controller, style === "zyra" ? "zyra" : "eyes", emotion);
     },
     neutral: () => (native ? controller.key("Retour") : controller.setMood("default")),
   };
@@ -80,11 +92,8 @@ function mountSmooth(host) {
   follow(host, controller);
   return {
     palette: (id) => controller.setPalette(id),
-    emotion(emotion) {
-      const mood = moodFor(emotion);
-      controller.setMood(mood);
-      return mood === "default" ? `${emotion.id} → aucun équivalent` : `${emotion.id} → ${mood}`;
-    },
+    // Le rendu lisse dessine les huit humeurs de LibEyes.
+    emotion: (emotion) => playMood(controller, "eyes", emotion),
     neutral: () => controller.setMood("default"),
   };
 }
