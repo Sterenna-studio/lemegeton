@@ -80,7 +80,7 @@
         "minitel-face : copie vendue dans Korigan (services/minitel-face)",
         "Minitel-Face-Autonomous : firmware, six visages en C++",
         "Minitel-Sigil : Galerie.h, les six visages comme styles 4 à 9 pilotés par les émotions du canon",
-        "Sterenna-studio/minitel-musee : libEyes.ts, libZyraEyes.ts (un seul vocabulaire pour les deux, celui de LibEyes)"
+        "Sterenna-studio/minitel-musee : libEyes.ts (humeurs de LibEyes), libZyraEyes.ts (neuf humeurs de LibZyra, peur et dégoût rapprochés des formes surpris et fatigué)"
       ]
     }
   },

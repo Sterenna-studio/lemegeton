@@ -281,6 +281,14 @@ pas ; dégoût en « fatigué » sur Zyra. Trois écarts avec les supports actue
 notés dans VISAGE.md ; le premier est corrigé : la page d'aperçu des yeux suit la
 table depuis le 2026-10-23 (restent le firmware et le portage Zyra de minitel-musee).
 
+### 2026-10-23 — portage Zyra de minitel-musee
+
+Le portage Zyra reprend `calm`, `curious` et `focused` (minitel-musee#37) : ses neuf
+humeurs sont identiques à celles de LibZyra, comparées rangée par rangée. La page
+d'aperçu des yeux joue « curieux » sur la carte Zyra au lieu d'écrire « non porté ».
+Seul écart restant avec la table de repli : le firmware Minitel_Sigil, qui joue le
+dégoût en « concentré ».
+
 ### Hors périmètre Lemegeton, relevé pendant l'audit
 
 Les sous-sites `nitro.sterenna.fr/zevent-booster/` et `/rpg/` étaient en 404 :
