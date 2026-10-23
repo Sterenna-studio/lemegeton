@@ -27,5 +27,11 @@ web-eye-animation (MIT, CyberAgentAILab) et GSAP depuis `nitro-clicker`.
 Relancer le script après un changement des yeux ou du canon, puis commiter le
 résultat.
 
+Cloudflare garde `eyes.js` 7 jours et `eyes.css` 30 jours, alors que la page n'est pas
+mise en cache : leurs adresses portent donc une empreinte du contenu (`eyes.js?v=…`),
+mise à jour par `build-eyes.mjs` (fins de ligne ignorées) et vérifiée par
+`check-gallery.mjs`. Sans elle, un correctif déployé reste invisible jusqu'à une
+semaine. Après avoir modifié `eyes.css` à la main, relancer aussi `build-eyes.mjs`.
+
 La page est en HTML/CSS/JavaScript natifs pour rester légère et éviter de rendre
 les dépendances ou les formats de travail du projet nécessaires au site public.
