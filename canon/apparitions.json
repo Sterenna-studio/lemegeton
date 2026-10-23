@@ -115,6 +115,14 @@
       "public_url": "https://sterenna.fr/",
       "uses": ["lien"],
       "canon_status": "own"
+    },
+    {
+      "repo": "agentAI-config-workspace",
+      "visibility": "private",
+      "role": "Atelier local OpenClaw et Ollama (dossier du lab, sans dépôt distant) : identité, âme et mémoire de l'agent de développement « leme » (Lemegaton Engine Matrix Entity)",
+      "uses": ["personnalité"],
+      "canon_status": "own",
+      "note": "Quatrième figure de Lemegeton, sans visage ni émotion ; à arbitrer dans IDENTITE.md. Le contenu du dossier est privé."
     }
   ]
 }
