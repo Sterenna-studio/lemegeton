@@ -1,4 +1,5 @@
 import assert from "node:assert/strict";
+import { createHash } from "node:crypto";
 import { readdir, readFile, stat } from "node:fs/promises";
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
@@ -58,6 +59,12 @@ for (const vendor of ["vendor/gsap.min.js", "vendor/web-eye-animation.js"]) {
   await stat(join(eyes, vendor));
 }
 assert.ok(html.includes("./eyes/"), "eyes/ is not linked from the gallery");
+// Adresses versionnées : sans cela Cloudflare sert eyes.js (7 jours) et eyes.css (30 jours) périmés.
+for (const name of ["eyes.js", "eyes.css"]) {
+  const source = (await readFile(join(eyes, name), "utf8")).replace(/\r\n/g, "\n");
+  const version = createHash("sha256").update(source).digest("hex").slice(0, 10);
+  assert.ok(eyesHtml.includes(`./${name}?v=${version}"`), `eyes/index.html ne référence pas ${name}?v=${version} : relancer node tools/build-eyes.mjs`);
+}
 // Le fichier assemblé embarque la table de repli du canon : elle doit être celle du canon,
 // sinon eyes.js a été généré avant un changement de canon (relancer tools/build-eyes.mjs).
 const canon = JSON.parse(await readFile(join(root, "canon", "emotions.json"), "utf8"));
