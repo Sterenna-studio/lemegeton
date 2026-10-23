@@ -21,6 +21,7 @@ Exemples : 0x7F plein, 0x20 vide, 0x70 tiers bas, 0x23 tiers haut.
 | 2026-10-06 | Barres **cisaillées** : le bout droit arrondi à l'envers du gauche (Zyra) | Deux octets différents (0x70 tiers bas, 0x2F deux tiers hauts) servaient d'embouts gauche et droit d'une même barre | minitel-face, minitel-musee, firmware Minitel-Face-Autonomous |
 | 2026-10-16 | Yeux en **trois barres** au lieu de blocs pleins (LibEyes) | Trois constantes nommaient les lignes 9, 11 et 13 ; l'œil couvre 9 à 13, et les lignes 10 et 12 n'étaient jamais peintes | minitel-face, copie de Korigan, minitel-musee (style renommé « Blocs ») |
 | 2026-10-16 | Visages Classic, Robot et Alien **troués, sans bords, décentrés**, bouches **à l'envers** | Nettoyage des sourcils qui effaçait le front sans le repeindre ; lignes sans bords ; traits décalés d'une colonne ; sourire dessiné barre en haut, coins en bas (∩) ; pupille en couleur NOIR, invisible sur fond noir | minitel-face, copie de Korigan (les firmwares ont leur propre dessin, continu) |
+| 2026-10-24 | Yeux du visage Lemegeton qui **dépassent de la tête** (minitel-musee et firmware Minitel-Sigil) | Le décalage des yeux (regard, pose d'émotion) n'était borné par rien par rapport à l'ovale de la tête ; le contour, au premier plan, coupait l'œil sans empêcher de le voir de l'autre côté | minitel-musee, firmware Minitel-Sigil (branche, à flasher) |
 
 Chaque fois, la forme avait été écrite octet par octet sans jamais être regardée
 en entier, et le défaut a été recopié dans chaque portage.
@@ -57,7 +58,12 @@ en entier, et le défaut a été recopié dans chaque portage.
    bord le gomme.
 10. **Une pupille est un 0x20 dans une rangée colorée.** Une rangée en couleur
     NOIR ne dessine rien sur fond noir.
-11. **Reporter dans toutes les copies.** Une forme vit souvent en plusieurs
+11. **Borner ce qui bouge dans un cadre.** Un élément animé (regard, pose, dérive) à
+    l'intérieur d'un contour doit être contraint à l'intérieur, sur son contour réel
+    (rotation et forme comprises) et pas sur son centre ; réduire le décalage plutôt que
+    déformer l'élément, avec un écrêtage au contour en filet de sécurité. Le test balaie
+    toutes les émotions, les regards extrêmes, les tailles et la dérive du cadre.
+12. **Reporter dans toutes les copies.** Une forme vit souvent en plusieurs
    exemplaires (voir [VISAGE.md](VISAGE.md)) : corriger l'original et chaque
    portage le même jour, puis régénérer l'aperçu (`node tools/build-eyes.mjs`).
 
@@ -66,4 +72,7 @@ en entier, et le défaut a été recopié dans chaque portage.
 minitel-face et sa copie de Korigan rejouent le vrai flux Vidéotex dans un écran
 simulé : rendu différentiel égal au rendu complet et aucune structure trouée pour
 chaque visage, silhouette continue et symétrie pour Classic, Robot et Alien.
-minitel-musee vérifie que LibEyes n'a aucune ligne vide.
+minitel-musee vérifie que LibEyes n'a aucune ligne vide et qu'aucun œil du visage
+Lemegeton ne dépasse de la tête (balayage des 10 émotions, de regards extrêmes, de deux
+tailles et de 120 s de dérive). Le firmware n'a pas de test : il est couvert par la
+compilation seulement.
